@@ -324,14 +324,14 @@ o.setOpaque(true);
     }//GEN-LAST:event_gobackMouseClicked
 
     private void gobackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseEntered
-o.setBackground(Color.WHITE);
-o.setForeground(new java.awt.Color(0, 153, 153));
+goback.setBackground(Color.WHITE);
+goback.setForeground(new java.awt.Color(0, 153, 153));
 
     }//GEN-LAST:event_gobackMouseEntered
 
     private void gobackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseExited
-     o.setBackground(new java.awt.Color(0, 153, 153));
-o.setForeground(Color.WHITE);
+     goback.setBackground(new java.awt.Color(0, 153, 153));
+goback.setForeground(Color.WHITE);
 
     }//GEN-LAST:event_gobackMouseExited
 

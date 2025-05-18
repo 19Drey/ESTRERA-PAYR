@@ -6,7 +6,7 @@
 package reports;
 
 import config.dbconnect;
-import static User.edituser.getHeightFromWidth;
+import static Employeeuser.editemployee.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -189,7 +189,7 @@ tables.getTableHeader().setForeground(Color.white); // White text
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("  TABLES");
         jLabel26.setOpaque(true);
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 780, 40));
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 40));
 
         tables.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -234,13 +234,13 @@ tables.getTableHeader().setForeground(Color.white); // White text
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
 
         tablechoice.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        tablechoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Users", "Candidates", "Partylist", "Applications" }));
+        tablechoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Users", " " }));
         tablechoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tablechoiceActionPerformed(evt);
             }
         });
-        getContentPane().add(tablechoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 170, 20));
+        getContentPane().add(tablechoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 170, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

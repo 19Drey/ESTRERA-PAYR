@@ -20,6 +20,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -198,11 +199,11 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
-        remove = new javax.swing.JLabel();
         image = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        remove = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -247,13 +248,14 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id.setEnabled(false);
         jPanel2.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 80, -1));
 
+        jLabel24.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(51, 51, 51));
         jLabel24.setText("User ID:");
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, 20));
@@ -263,30 +265,36 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         type.setPreferredSize(new java.awt.Dimension(57, 25));
         jPanel2.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 130, 20));
 
+        jLabel25.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(51, 51, 51));
         jLabel25.setText("User-type:");
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 100, 20));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Firstname:");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 100, 20));
         jPanel2.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 270, 20));
 
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Lastname:");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 100, 20));
         jPanel2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 270, 20));
 
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Username:");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 100, 20));
         jPanel2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 270, 20));
 
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setText("Email:");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 100, 20));
         jPanel2.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 270, 20));
 
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(51, 51, 51));
         jLabel12.setText("Sex:");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 50, 20));
@@ -295,6 +303,7 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
         jPanel2.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 100, 20));
 
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Birthdate:");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 100, 20));
@@ -332,6 +341,7 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         jLabel23.setText("ACCOUNT:");
         jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 30));
 
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("User status:");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 20));
@@ -342,7 +352,17 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         jPanel2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, 20));
 
         jPanel5.setLayout(null);
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 220, 110));
+
+        image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMouseClicked(evt);
+            }
+        });
+        jPanel5.add(image);
+        image.setBounds(0, 0, 220, 110);
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 220, 110));
 
         remove.setBackground(new java.awt.Color(51, 255, 204));
         remove.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -357,25 +377,7 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         });
         jPanel2.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 170, 50));
 
-        image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 220, 110));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 840, 390));
-
-        jPanel6.setBackground(new java.awt.Color(0, 255, 204));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -30, 120, 35));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 840, 390));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -391,9 +393,12 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 980, 35));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("PAYROLL");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, -1, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1574610758891-5b809b6e6e2e (1).jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -478,6 +483,29 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         path = "";
     }//GEN-LAST:event_removeMouseClicked
 
+    private void imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMouseClicked
+         JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            try {
+                selectedFile = fileChooser.getSelectedFile();
+                destination = "src/images/" + selectedFile.getName();
+                path  = selectedFile.getAbsolutePath();
+
+                if(FileExistenceChecker(path) == 1){
+
+                    JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
+                    destination = "";
+                    path="";
+                }else{
+                    image.setText("image here!");
+                    image.setIcon(ResizeImage(path, null, image));
+                }
+            } catch (Exception ex) {
+                System.out.println("File Error!");
+            }}
+    }//GEN-LAST:event_imageMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField birthdate;
@@ -485,6 +513,7 @@ public class editmyaccount extends javax.swing.JInternalFrame {
     private javax.swing.JTextField fname;
     private javax.swing.JTextField id;
     private javax.swing.JLabel image;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -502,7 +531,6 @@ public class editmyaccount extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField lname;
     private javax.swing.JLabel remove;
     private javax.swing.JLabel savebttn;

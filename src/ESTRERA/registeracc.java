@@ -34,7 +34,7 @@ public class registeracc extends javax.swing.JFrame {
         
         dbconnect dbc = new dbconnect();
    try {
-            String query = "SELECT * FROM users WHERE ussername = '"+ uname.getText()+"'OR useremail ='"+emaill.getText() +"'";
+            String query = "SELECT * FROM `users` WHERE ussername = '"+ uname.getText()+"'OR useremail ='"+emaill.getText() +"'";
             ResultSet resultSet = dbc.getData(query);
             if(resultSet.next()){
                 uemail= resultSet.getString("useremail");
@@ -435,7 +435,7 @@ public class registeracc extends javax.swing.JFrame {
                 
            try {
     String pass = passwordHasher.hashPassword(password.getText());
-    int db = dbc.insertData("INSERT INTO users (fname, lname, username, useremail, sex, utype, birthdate, password, Uimage, stats) VALUES ('"
+    int db = dbc.insertData("INSERT INTO users (fname, lname, ussername, useremail, sex, utype, birthdate, password, Uimage, stats) VALUES ('"
         + fname.getText() + "', '"
         + lname.getText() + "', '"
         + uname.getText() + "', '"

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package User;
+package Employeeuser;
 
 import config.Session;
 import config.dbconnect;
@@ -34,12 +34,12 @@ import net.proteanit.sql.DbUtils;
  *
  * @author acer
  */
-public class edituser extends javax.swing.JInternalFrame {
+public class editemployee extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form edituser
      */
-    public edituser() {
+    public editemployee() {
         initComponents();
         displayData();
         
@@ -234,15 +234,13 @@ userstable.getTableHeader().setForeground(new java.awt.Color(0, 128, 0));
         remove = new javax.swing.JLabel();
         savebttn = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userstable = new javax.swing.JTable();
         editinfo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 255, 204));
+        setBackground(new java.awt.Color(0, 153, 153));
         setBorder(null);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -360,7 +358,7 @@ userstable.getTableHeader().setForeground(new java.awt.Color(0, 128, 0));
                 savebttnMouseClicked(evt);
             }
         });
-        editpanel.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 90, 20));
+        editpanel.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 90, 20));
 
         jLabel8.setBackground(new java.awt.Color(0, 153, 153));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -368,27 +366,9 @@ userstable.getTableHeader().setForeground(new java.awt.Color(0, 128, 0));
         jLabel8.setText("Clear all");
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
         jLabel8.setOpaque(true);
-        editpanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 90, 20));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
-        editpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 430, 440));
+        editpanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 90, 20));
 
         getContentPane().add(editpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 420));
-
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -30, 110, 35));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -582,14 +562,12 @@ userstable.getTableHeader().setForeground(new java.awt.Color(0, 128, 0));
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lname;

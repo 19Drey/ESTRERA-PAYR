@@ -220,7 +220,7 @@ public class recovery extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText(" What's your favorite hobby?");
+        jLabel2.setText(" What's your  hobby?");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         loginFrame.add(jLabel2);
         jLabel2.setBounds(600, 150, 210, 40);
@@ -237,7 +237,7 @@ public class recovery extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText(" What's your pets name?");
+        jLabel4.setText(" What's your favorite color?");
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         loginFrame.add(jLabel4);
         jLabel4.setBounds(600, 360, 210, 40);

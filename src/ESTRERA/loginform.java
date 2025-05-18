@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import registrardashboard.usermaindash;
 
 
+
 /**
  *
  * @author acer
@@ -29,8 +30,9 @@ public class loginform extends javax.swing.JFrame {
     public loginform() {
         initComponents();
     }
-         
-    
+
+
+        
     
     static String hashedpassword, rehashedpassword, usname,status,typee;   
     static int uid;
@@ -38,7 +40,7 @@ public class loginform extends javax.swing.JFrame {
     dbconnect dbc = new dbconnect();
     
         try {
-                String query = "SELECT * FROM users WHERE ussername = '"+username+"'";
+                String query = "SELECT * FROM `users` WHERE ussername = '"+username+"'";
                 ResultSet resultSet = dbc.getData(query);
             if(resultSet.next()){
                    hashedpassword = resultSet.getString("password");
@@ -311,9 +313,7 @@ public class loginform extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(loginFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(loginFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         loginFrame.getAccessibleContext().setAccessibleName("");

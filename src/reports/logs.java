@@ -6,7 +6,7 @@
 package reports;
 
 import config.dbconnect;
-import static User.edituser.getHeightFromWidth;
+import static Employeeuser.editemployee.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -96,7 +96,6 @@ tablelogs.getTableHeader().setForeground(new java.awt.Color(0, 128, 128)); // Se
         jLabel26 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablelogs = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -104,8 +103,9 @@ tablelogs.getTableHeader().setForeground(new java.awt.Color(0, 128, 128)); // Se
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel26.setBackground(new java.awt.Color(0, 153, 153));
-        jLabel26.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText(" USERS LOGS");
         jLabel26.setOpaque(true);
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 780, 40));
@@ -121,21 +121,6 @@ tablelogs.getTableHeader().setForeground(new java.awt.Color(0, 128, 128)); // Se
         jScrollPane1.setViewportView(tablelogs);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 780, 380));
-
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -30, 110, 35));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -159,7 +144,6 @@ tablelogs.getTableHeader().setForeground(new java.awt.Color(0, 128, 128)); // Se
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablelogs;
     // End of variables declaration//GEN-END:variables

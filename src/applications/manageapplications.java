@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package User;
+package applications;
+
+import partylist.*;
 import java.awt.Color;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -11,14 +13,14 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author acer
  */
-public class manageuser extends javax.swing.JInternalFrame {
+public class manageapplications extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form manageuser
+     * Creates new form managepaartylist
      */
-    public manageuser() {
+    public manageapplications() {
         initComponents();
-          this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
+            this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
     }
@@ -32,22 +34,17 @@ public class manageuser extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToolBar1 = new javax.swing.JToolBar();
-        jPanel1 = new javax.swing.JPanel();
+        applicationpane = new javax.swing.JDesktopPane();
         topbar = new javax.swing.JPanel();
         view = new javax.swing.JLabel();
         add = new javax.swing.JLabel();
         edit = new javax.swing.JLabel();
         delete = new javax.swing.JLabel();
-        userss = new javax.swing.JDesktopPane();
-
-        jToolBar1.setRollover(true);
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -60,18 +57,30 @@ public class manageuser extends javax.swing.JInternalFrame {
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        applicationpane.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout applicationpaneLayout = new javax.swing.GroupLayout(applicationpane);
+        applicationpane.setLayout(applicationpaneLayout);
+        applicationpaneLayout.setHorizontalGroup(
+            applicationpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        applicationpaneLayout.setVerticalGroup(
+            applicationpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(applicationpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 470));
 
         topbar.setBackground(new java.awt.Color(255, 255, 255));
         topbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        view.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        view.setForeground(new java.awt.Color(51, 51, 51));
+        view.setForeground(new java.awt.Color(204, 0, 0));
         view.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         view.setText("View");
         view.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,10 +94,10 @@ public class manageuser extends javax.swing.JInternalFrame {
                 viewMouseExited(evt);
             }
         });
-        topbar.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, 110, 20));
+        topbar.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 110, 20));
 
-        add.setBackground(new java.awt.Color(51, 51, 51));
-        add.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        add.setBackground(new java.awt.Color(204, 0, 0));
+        add.setForeground(new java.awt.Color(204, 0, 0));
         add.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add.setText("Add");
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,11 +111,10 @@ public class manageuser extends javax.swing.JInternalFrame {
                 addMouseExited(evt);
             }
         });
-        topbar.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 110, 20));
+        topbar.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 110, 20));
 
         edit.setBackground(new java.awt.Color(153, 153, 153));
-        edit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        edit.setForeground(new java.awt.Color(51, 51, 51));
+        edit.setForeground(new java.awt.Color(204, 0, 0));
         edit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         edit.setText("Edit");
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,10 +128,9 @@ public class manageuser extends javax.swing.JInternalFrame {
                 editMouseExited(evt);
             }
         });
-        topbar.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 110, 20));
+        topbar.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 110, 20));
 
-        delete.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        delete.setForeground(new java.awt.Color(51, 51, 51));
+        delete.setForeground(new java.awt.Color(204, 0, 0));
         delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         delete.setText("Delete");
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,42 +144,17 @@ public class manageuser extends javax.swing.JInternalFrame {
                 deleteMouseExited(evt);
             }
         });
-        topbar.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 110, 20));
+        topbar.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 110, 20));
 
-        jPanel1.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 820, 100));
-
-        userss.setBackground(new java.awt.Color(0, 153, 153));
-        userss.setForeground(new java.awt.Color(0, 204, 204));
-        userss.setPreferredSize(new java.awt.Dimension(800, 475));
-
-        javax.swing.GroupLayout userssLayout = new javax.swing.GroupLayout(userss);
-        userss.setLayout(userssLayout);
-        userssLayout.setHorizontalGroup(
-            userssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        userssLayout.setVerticalGroup(
-            userssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(userss, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 490));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 480));
+        getContentPane().add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 820, 100));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        userss.removeAll();
-     adduser ad = new adduser();
-       userss.add(ad).setVisible(true);       
-    }//GEN-LAST:event_formInternalFrameActivated
-
     private void viewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseClicked
-        userss.removeAll();
-         viewusers vw = new viewusers();
-        userss.add(vw).setVisible(true);             
+        applicationpane.removeAll();
+        viewapplication vw = new viewapplication();
+        applicationpane.add(vw).setVisible(true);
     }//GEN-LAST:event_viewMouseClicked
 
     private void viewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseEntered
@@ -182,22 +164,33 @@ public class manageuser extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_viewMouseEntered
 
     private void viewMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseExited
-         view.setBackground(Color.white);
-         view.setForeground(new java.awt.Color(204,0,0));
-         view.setOpaque(false);
+        view.setBackground(Color.white);
+        view.setForeground(new java.awt.Color(204,0,0));
+        view.setOpaque(false);
     }//GEN-LAST:event_viewMouseExited
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        userss.removeAll();
-        adduser ad = new adduser();
-        userss.add(ad).setVisible(true);       
-        
+       applicationpane.removeAll();
+        addapplication ad = new addapplication();
+        applicationpane.add(ad).setVisible(true);
+
     }//GEN-LAST:event_addMouseClicked
 
+    private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
+        add.setOpaque(true);
+        add.setBackground(new java.awt.Color(204,204,204));
+        add.setForeground(Color.white);
+    }//GEN-LAST:event_addMouseEntered
+
+    private void addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseExited
+        add.setBackground(Color.white);
+        add.setForeground(new java.awt.Color(204,0,0));
+    }//GEN-LAST:event_addMouseExited
+
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
-     userss.removeAll();
-     edituser ed = new edituser();
-    userss.add(ed).setVisible(true);       
+        applicationpane.removeAll();
+        editapplication ed = new editapplication();
+        applicationpane.add(ed).setVisible(true);
     }//GEN-LAST:event_editMouseClicked
 
     private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
@@ -213,9 +206,9 @@ public class manageuser extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_editMouseExited
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        userss.removeAll();
-     deleteuser dl = new deleteuser();
-    userss.add(dl).setVisible(true); 
+         applicationpane.removeAll();
+        deleteapplication dl = new deleteapplication();
+        applicationpane.add(dl).setVisible(true);
     }//GEN-LAST:event_deleteMouseClicked
 
     private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
@@ -225,31 +218,24 @@ public class manageuser extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_deleteMouseEntered
 
     private void deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseExited
-          delete.setBackground(Color.white);
-         delete.setForeground(new java.awt.Color(204,0,0));
-         delete.setOpaque(false);
+        delete.setBackground(Color.white);
+        delete.setForeground(new java.awt.Color(204,0,0));
+        delete.setOpaque(false);
     }//GEN-LAST:event_deleteMouseExited
 
-    private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
-        add.setOpaque(true);
-        add.setBackground(new java.awt.Color(204,204,204));
-        add.setForeground(Color.white);
-    }//GEN-LAST:event_addMouseEntered
-
-    private void addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseExited
-        add.setBackground(Color.white);
-         add.setForeground(new java.awt.Color(204,0,0));
-         add.setOpaque(false);    }//GEN-LAST:event_addMouseExited
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        applicationpane.removeAll();
+        addapplication ad = new addapplication();
+        applicationpane.add(ad).setVisible(true);
+    }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel add;
+    public javax.swing.JDesktopPane applicationpane;
     private javax.swing.JLabel delete;
     private javax.swing.JLabel edit;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel topbar;
-    public javax.swing.JDesktopPane userss;
     private javax.swing.JLabel view;
     // End of variables declaration//GEN-END:variables
 }

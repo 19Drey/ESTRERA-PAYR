@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package User;
+package Employeeuser;
 
 
 import config.Session;
 import config.dbconnect;
-import static User.edituser.getHeightFromWidth;
+import static Employeeuser.editemployee.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -27,12 +27,12 @@ import net.proteanit.sql.DbUtils;
  *
  * @author acer
  */
-public class deleteuser extends javax.swing.JInternalFrame {
+public class deleteemployee extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form viewcandidates
+    
      */
-    public deleteuser() {
+    public deleteemployee() {
         initComponents();
          displayData();
        this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
@@ -543,7 +543,7 @@ public boolean idcheck() {
         usertable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(usertable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 780, 200));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 780, 200));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -570,12 +570,12 @@ public boolean idcheck() {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ID:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 80, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 80, 20));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Status:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 80, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 80, 20));
 
         firstname.setEnabled(false);
         firstname.addActionListener(new java.awt.event.ActionListener() {
@@ -583,7 +583,7 @@ public boolean idcheck() {
                 firstnameActionPerformed(evt);
             }
         });
-        getContentPane().add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 220, -1));
+        getContentPane().add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 220, -1));
 
         idd.setEnabled(false);
         idd.addActionListener(new java.awt.event.ActionListener() {
@@ -591,15 +591,15 @@ public boolean idcheck() {
                 iddActionPerformed(evt);
             }
         });
-        getContentPane().add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 220, -1));
+        getContentPane().add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 220, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Username:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 80, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 80, 20));
 
         jPanel5.setLayout(null);
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 110, 100));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 110, 100));
 
         delete.setBackground(new java.awt.Color(0, 153, 153));
         delete.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -619,14 +619,14 @@ public boolean idcheck() {
                 lastnameActionPerformed(evt);
             }
         });
-        getContentPane().add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 220, -1));
+        getContentPane().add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 220, -1));
 
         image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         getContentPane().add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 110, 100));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1574610758891-5b809b6e6e2e (1).jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 510));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -100, 800, 630));
 
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, -1));
@@ -681,7 +681,7 @@ public boolean idcheck() {
     }//GEN-LAST:event_iddActionPerformed
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-       Session sess = Session.getInstance();
+Session sess = Session.getInstance();
         dbconnect dbc = new dbconnect();
         int cuser = sess.getId();
         if(idd.getText().isEmpty()||lastname.getText().isEmpty()||firstname.getText().isEmpty()){

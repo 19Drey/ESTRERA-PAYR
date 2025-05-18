@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 
 import reports.report;
-import rreports.rreport;
+import reportss.rreport;
 
 /**
  *
@@ -51,6 +51,7 @@ public class usermaindash extends javax.swing.JFrame {
         accname = new javax.swing.JLabel();
         application = new javax.swing.JLabel();
         editaccc = new javax.swing.JLabel();
+        reports1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
@@ -85,7 +86,7 @@ public class usermaindash extends javax.swing.JFrame {
                 jLabel5MouseExited(evt);
             }
         });
-        main.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 30, 25));
+        main.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, 30, 25));
 
         minimize.setBackground(new java.awt.Color(102, 255, 204));
         minimize.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -104,7 +105,7 @@ public class usermaindash extends javax.swing.JFrame {
                 minimizeMouseExited(evt);
             }
         });
-        main.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 30, 25));
+        main.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 30, 25));
 
         jLabel1.setBackground(new java.awt.Color(0, 153, 153));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -113,7 +114,7 @@ public class usermaindash extends javax.swing.JFrame {
         jLabel1.setText("     REGISTERS DASHBOARD");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel1.setOpaque(true);
-        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 780, 40));
+        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 800, 40));
 
         sidebar.setBackground(new java.awt.Color(255, 255, 255));
         sidebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
@@ -123,7 +124,7 @@ public class usermaindash extends javax.swing.JFrame {
         myaccount.setBackground(new java.awt.Color(0, 153, 153));
         myaccount.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         myaccount.setForeground(new java.awt.Color(0, 204, 204));
-        myaccount.setText("  My accouunt");
+        myaccount.setText("  My account");
         myaccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 myaccountMouseClicked(evt);
@@ -135,7 +136,7 @@ public class usermaindash extends javax.swing.JFrame {
                 myaccountMouseExited(evt);
             }
         });
-        sidebar.add(myaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, 40));
+        sidebar.add(myaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 170, 40));
 
         reports.setBackground(new java.awt.Color(204, 0, 0));
         reports.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -152,7 +153,7 @@ public class usermaindash extends javax.swing.JFrame {
                 reportsMouseExited(evt);
             }
         });
-        sidebar.add(reports, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 160, 40));
+        sidebar.add(reports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, 40));
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -169,10 +170,10 @@ public class usermaindash extends javax.swing.JFrame {
                 logoutMouseExited(evt);
             }
         });
-        sidebar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 160, 40));
+        sidebar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 130, 40));
 
         accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/account-circle-icon (1).png"))); // NOI18N
-        sidebar.add(accname, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 30, -1));
+        sidebar.add(accname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
 
         application.setBackground(new java.awt.Color(204, 0, 0));
         application.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -189,7 +190,7 @@ public class usermaindash extends javax.swing.JFrame {
                 applicationMouseExited(evt);
             }
         });
-        sidebar.add(application, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 160, 40));
+        sidebar.add(application, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 160, 40));
 
         editaccc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         editaccc.setForeground(new java.awt.Color(0, 204, 204));
@@ -205,7 +206,24 @@ public class usermaindash extends javax.swing.JFrame {
                 editacccMouseExited(evt);
             }
         });
-        sidebar.add(editaccc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 160, 40));
+        sidebar.add(editaccc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 110, 40));
+
+        reports1.setBackground(new java.awt.Color(204, 0, 0));
+        reports1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        reports1.setForeground(new java.awt.Color(0, 204, 204));
+        reports1.setText("Employess");
+        reports1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reports1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                reports1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                reports1MouseExited(evt);
+            }
+        });
+        sidebar.add(reports1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
 
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 580));
 
@@ -366,22 +384,25 @@ myaccount.setForeground(Color.white);
 
     private void applicationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applicationMouseClicked
 application.setOpaque(true);
-application.setBackground(new java.awt.Color(221, 21, 21));
+application.setBackground(new java.awt.Color(0, 153, 153));
 application.setForeground(Color.white);
 
-myaccount.setBackground(Color.white);
-myaccount.setForeground(new java.awt.Color(0, 128, 128)); // Green color
 myaccount.setOpaque(true);
+myaccount.setBackground(Color.white);
+myaccount.setForeground(new java.awt.Color(0, 128, 128));
 
-reports.setBackground(Color.white);
-reports.setForeground(new java.awt.Color(0, 128, 128)); // Green color
 reports.setOpaque(true);
+reports.setBackground(Color.white);
+reports.setForeground(new java.awt.Color(0, 128, 128));
 
-editaccc.setBackground(Color.white);
-editaccc.setForeground(new java.awt.Color(0, 128, 128)); // Green color
 editaccc.setOpaque(true);
+editaccc.setBackground(Color.white);
+editaccc.setForeground(new java.awt.Color(0, 128, 128));
 
 jDesktopPane1.removeAll();
+accdetails ad = new accdetails();
+jDesktopPane1.add(ad).setVisible(true);
+
 
  
     
@@ -404,13 +425,15 @@ jDesktopPane1.removeAll();
     }//GEN-LAST:event_myaccountMouseEntered
 
     private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
-       myaccount.setOpaque(true);
-myaccount.setBackground(new java.awt.Color(221, 21, 21));
-myaccount.setForeground(Color.white);
+  myaccount.setOpaque(true);
+ myaccount.setBackground(new java.awt.Color(0, 153, 153));
+ myaccount.setForeground(Color.white);
 
-application.setBackground(Color.white);
-application.setForeground(new java.awt.Color(0, 128, 128)); // Green color
+
+
 application.setOpaque(true);
+application.setBackground(Color.white);
+application.setForeground(new java.awt.Color(0, 128, 128));
 
 reports.setBackground(Color.white);
 reports.setForeground(new java.awt.Color(0, 128, 128)); // Green color
@@ -425,6 +448,18 @@ accdetails ad = new accdetails();
 jDesktopPane1.add(ad).setVisible(true);
 
     }//GEN-LAST:event_myaccountMouseClicked
+
+    private void reports1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reports1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reports1MouseClicked
+
+    private void reports1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reports1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reports1MouseEntered
+
+    private void reports1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reports1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reports1MouseExited
 
     /**
      * @param args the command line arguments
@@ -475,6 +510,7 @@ jDesktopPane1.add(ad).setVisible(true);
     private javax.swing.JLabel minimize;
     private javax.swing.JLabel myaccount;
     private javax.swing.JLabel reports;
+    private javax.swing.JLabel reports1;
     private javax.swing.JPanel sidebar;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rreports;
+package reportss;
 
 
 import config.dbconnect;
-import static User.edituser.getHeightFromWidth;
+import static Employeeuser.editemployee.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -146,7 +146,6 @@ tables.getTableHeader().setForeground(Color.white); // Set text color to white
         jLabel26 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tables = new javax.swing.JTable();
-        jPanel6 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         tablechoice = new javax.swing.JComboBox<>();
 
@@ -190,21 +189,6 @@ tables.getTableHeader().setForeground(Color.white); // Set text color to white
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 780, 350));
 
-        jPanel6.setBackground(new java.awt.Color(0, 153, 153));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -30, 110, 35));
-
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -226,7 +210,7 @@ tables.getTableHeader().setForeground(Color.white); // Set text color to white
                 tablechoiceActionPerformed(evt);
             }
         });
-        getContentPane().add(tablechoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, 20));
+        getContentPane().add(tablechoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 170, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,7 +235,6 @@ tables.getTableHeader().setForeground(Color.white); // Set text color to white
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> tablechoice;
     private javax.swing.JTable tables;

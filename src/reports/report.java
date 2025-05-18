@@ -158,15 +158,13 @@ public class report extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablesMouseClicked
 
     private void tablesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablesMouseEntered
-        tables.setOpaque(true);
-        tables.setBackground(new java.awt.Color(204,204,204));
-        tables.setForeground(Color.white);
+          tables.setBackground(Color.WHITE);
+ tables.setForeground(new java.awt.Color(0, 153, 153));
     }//GEN-LAST:event_tablesMouseEntered
 
     private void tablesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablesMouseExited
-        tables.setBackground(Color.white);
-        tables.setForeground(new java.awt.Color(204,0,0));
-        tables.setOpaque(false);
+      tables.setBackground(new java.awt.Color(0, 153, 153));
+         tables.setForeground(Color.BLACK);
     }//GEN-LAST:event_tablesMouseExited
 
     private void pendingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseClicked
@@ -177,14 +175,14 @@ public class report extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_pendingsMouseClicked
 
     private void pendingsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseEntered
-        pendings.setOpaque(true);
-        pendings.setBackground(new java.awt.Color(204,204,204));
-        pendings.setForeground(Color.white);
+       pendings.setBackground(Color.WHITE);
+ pendings.setForeground(new java.awt.Color(0, 153, 153));
+        
     }//GEN-LAST:event_pendingsMouseEntered
 
     private void pendingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseExited
-        pendings.setBackground(Color.white);
-        pendings.setForeground(new java.awt.Color(204,0,0));
+       pendings.setBackground(new java.awt.Color(0, 153, 153));
+         pendings.setForeground(Color.BLACK);
     }//GEN-LAST:event_pendingsMouseExited
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
@@ -195,16 +193,14 @@ public class report extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseExited
-      logs.setBackground(Color.white);
-logs.setForeground(Color.white);
-logs.setOpaque(true);
+        logs.setBackground(new java.awt.Color(0, 153, 153));
+         logs.setForeground(Color.BLACK);
 
     }//GEN-LAST:event_logsMouseExited
 
     private void logsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseEntered
-        logs.setOpaque(true);
-        logs.setBackground(new java.awt.Color(204,204,204));
-        logs.setForeground(Color.white);
+        logs.setBackground(Color.WHITE);
+         logs.setForeground(new java.awt.Color(0, 153, 153));
     }//GEN-LAST:event_logsMouseEntered
 
     private void logsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseClicked
@@ -214,16 +210,14 @@ logs.setOpaque(true);
     }//GEN-LAST:event_logsMouseClicked
 
     private void loggedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loggedMouseExited
-      logged.setBackground(new java.awt.Color(0, 128, 0));
-logged.setForeground(Color.white);
-logged.setOpaque(true);
+    logged.setBackground(new java.awt.Color(0, 153, 153));
+         logged.setForeground(Color.BLACK);
 
     }//GEN-LAST:event_loggedMouseExited
 
     private void loggedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loggedMouseEntered
-        logged.setOpaque(true);
-logged.setBackground(new java.awt.Color(0, 128, 0));
-logged.setForeground(Color.white);
+        logged.setBackground(Color.WHITE);
+         logged.setForeground(new java.awt.Color(0, 153, 153));
 
     }//GEN-LAST:event_loggedMouseEntered
 

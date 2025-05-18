@@ -18,53 +18,81 @@ import javax.swing.JOptionPane;
  * @author acer
  */
 public class dbconnect {
-     public Connection connect;
+    public Connection connect;
 
-       // constructor to connect to our database
-        public dbconnect(){
-            try{
-                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/payroll_management", "root", "");
-            }catch(SQLException ex){
-                    System.out.println("Can't connect to database: "+ex.getMessage());
-            }
+    // Constructor to connect to payroll_management database
+    public dbconnect() {
+        try {
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/payroll_management", "root", "");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Can't connect to database: " + ex.getMessage());
+            System.out.println("Connection Error: " + ex);
         }
-        
-        //Function to save data
-        public int insertData(String sql){
-            int result;
-            try{
-                PreparedStatement pst = connect.prepareStatement(sql);
-                pst.executeUpdate();
+    }
+
+    // Function to insert data with parameterized query
+    public int insertData(String sql, String... params) {
+        int result = 0;
+        try (PreparedStatement pst = connect.prepareStatement(sql)) {
+            for (int i = 0; i < params.length; i++) {
+                pst.setString(i + 1, params[i]);
+            }
+            result = pst.executeUpdate();
+            if (result > 0) {
                 System.out.println("Inserted Successfully!");
-                pst.close();
-                result =1;
-            }catch(SQLException ex){
-                System.out.println("Connection Error: "+ex);
-                result =0;
+            } else {
+                System.out.println("Insert Failed!");
             }
-            return result;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Database error: " + ex.getMessage());
+            System.out.println("Connection Error: " + ex);
         }
-        
-        //Function to retrieve data
-        public ResultSet getData(String sql) throws SQLException{
-            Statement stmt = connect.createStatement();
-            ResultSet rst = stmt.executeQuery(sql);
-            return rst;
-        }
-        public void updateData(String sql) {
-    try {
-        PreparedStatement pst = connect.prepareStatement(sql);
-        int rowsUpdated = pst.executeUpdate();
-        
-        if (rowsUpdated > 0) {
-            JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
-        } else {
-            System.out.println("Data Update Failed!");
-        }
+        return result;
+    }
 
-        pst.close();
-    } catch (SQLException ex) {
-        System.out.println("Connection Error: " + ex);
+    // Function to update data with parameterized query
+    public int updateData(String sql, String... params) {
+        int result = 0;
+        try (PreparedStatement pst = connect.prepareStatement(sql)) {
+            for (int i = 0; i < params.length; i++) {
+                pst.setString(i + 1, params[i]);
+            }
+            result = pst.executeUpdate();
+            if (result > 0) {
+                JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
+            } else {
+                System.out.println("Data Update Failed!");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Database error: " + ex.getMessage());
+            System.out.println("Connection Error: " + ex);
+        }
+        return result;
+    }
+
+    // Function to retrieve data with parameterized query
+    public ResultSet getData(String sql, String... params) throws SQLException {
+        PreparedStatement pst = connect.prepareStatement(sql);
+        for (int i = 0; i < params.length; i++) {
+            pst.setString(i + 1, params[i]);
+        }
+        return pst.executeQuery();
+    }
+
+    // Function to get the connection (for custom queries)
+    public Connection getConnection() {
+        return connect;
+    }
+
+    // Function to close the connection
+    public void closeConnection() {
+        try {
+            if (connect != null && !connect.isClosed()) {
+                connect.close();
+                System.out.println("Database connection closed.");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error closing connection: " + ex);
     }
 }       
         

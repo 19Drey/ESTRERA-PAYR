@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package User;
+package Employeeuser;
 
 import config.Session;
 import config.dbconnect;
-import static User.edituser.getHeightFromWidth;
+import static Employeeuser.editemployee.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -25,12 +25,12 @@ import net.proteanit.sql.DbUtils;
  *
  * @author acer
  */
-public class viewusers extends javax.swing.JInternalFrame {
+public class viewemployee extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form viewusers
      */
-    public viewusers() {
+    public viewemployee() {
         initComponents();
         
         displayData();
@@ -117,12 +117,12 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         jLabel26 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         viewdetails = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 255, 204));
+        setBackground(new java.awt.Color(0, 153, 153));
         setBorder(null);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -159,7 +159,7 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         infopanel.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 200, 20));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Username:");
         infopanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 100, 20));
 
@@ -176,12 +176,12 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         infopanel.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 360, 20));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Firstname:");
         infopanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 70, 20));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Lastname:");
         infopanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 70, 20));
 
@@ -267,6 +267,9 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
 
         infopanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 140, 130));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1574610758891-5b809b6e6e2e (1).jpg"))); // NOI18N
+        infopanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 410, 440));
+
         getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 420));
 
         viewdetails.setBackground(new java.awt.Color(0, 153, 153));
@@ -280,21 +283,6 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
             }
         });
         getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 90, 20));
-
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, -30, 110, 35));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -361,6 +349,7 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
     private javax.swing.JLabel fname;
     private javax.swing.JLabel image;
     private javax.swing.JPanel infopanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -373,7 +362,6 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lname;

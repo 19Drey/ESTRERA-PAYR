@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package User;
+package Employeeuser;
 
 import com.mysql.jdbc.Statement;
 import config.Session;
@@ -35,12 +35,12 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author acer
  */
-public class adduser extends javax.swing.JInternalFrame {
+public class addemployee extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form adduser
      */
-    public adduser() {
+    public addemployee() {
         initComponents();
           this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
@@ -217,29 +217,29 @@ public class adduser extends javax.swing.JInternalFrame {
                 fnameActionPerformed(evt);
             }
         });
-        jPanel3.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 230, 30));
+        jPanel3.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 230, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setText("Password:");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 120, 30));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 120, 30));
 
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
             }
         });
-        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 260, 30));
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 260, 30));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setText("Confirm password:");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 140, 20));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 140, 20));
 
         confpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confpassActionPerformed(evt);
             }
         });
-        jPanel3.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 260, 30));
+        jPanel3.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 260, 30));
 
         jPanel4.setLayout(null);
 
@@ -267,22 +267,22 @@ public class adduser extends javax.swing.JInternalFrame {
                 showpassActionPerformed(evt);
             }
         });
-        jPanel3.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 140, 20));
+        jPanel3.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 140, 20));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("Firstname:");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 110, 20));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 110, 20));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("Lastname:");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 110, 20));
-        jPanel3.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 230, 30));
-        jPanel3.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 230, 30));
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 110, 20));
+        jPanel3.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 230, 30));
+        jPanel3.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 230, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Username:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 100, 20));
-        jPanel3.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 230, 30));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 100, 20));
+        jPanel3.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 230, 30));
 
         remove.setBackground(new java.awt.Color(0, 204, 204));
         remove.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -298,11 +298,11 @@ public class adduser extends javax.swing.JInternalFrame {
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setText("Birthdate(yyyy-MM-dd):");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 200, 20));
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 200, 20));
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel25.setText("User-type:");
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, 20));
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 110, 20));
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -311,12 +311,12 @@ public class adduser extends javax.swing.JInternalFrame {
                 typeActionPerformed(evt);
             }
         });
-        jPanel3.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 130, -1));
+        jPanel3.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 130, -1));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Status:");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 50, 30));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 50, 30));
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         status.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -325,11 +325,11 @@ public class adduser extends javax.swing.JInternalFrame {
                 statusActionPerformed(evt);
             }
         });
-        jPanel3.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 130, 30));
+        jPanel3.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 130, 30));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("Email:");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 70, 50));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 70, 50));
 
         emaill.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         emaill.addActionListener(new java.awt.event.ActionListener() {
@@ -337,18 +337,18 @@ public class adduser extends javax.swing.JInternalFrame {
                 emaillActionPerformed(evt);
             }
         });
-        jPanel3.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 240, 30));
+        jPanel3.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 240, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("Sex:");
-        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 80, 30));
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 80, 30));
 
         jLabel8.setBackground(new java.awt.Color(204, 204, 204));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Clear all");
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
         jLabel8.setOpaque(true);
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 90, 20));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 90, -1));
 
         savebttn.setBackground(new java.awt.Color(204, 204, 204));
         savebttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -366,11 +366,11 @@ public class adduser extends javax.swing.JInternalFrame {
                 savebttnMouseExited(evt);
             }
         });
-        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 90, 20));
+        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 90, -1));
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        jPanel3.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 130, 30));
+        jPanel3.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 130, 30));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(51, 51, 51));
@@ -388,7 +388,7 @@ public class adduser extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -10, -1, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 540));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 810, 540));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 530));
 
@@ -477,7 +477,7 @@ public class adduser extends javax.swing.JInternalFrame {
                     int lastInsertedId = -1;
                      
                   String pass = passwordHasher.hashPassword(password.getText());
-               String sql = "INSERT INTO users(fname, lname, ussername, useremail, sex, utype, birthdate, password, stats,Uimage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+               String sql = "INSERT INTO `users`(fname, lname, ussername, useremail, sex, utype, birthdate, password, stats,Uimage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
                 PreparedStatement pst = dbc.connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -518,7 +518,7 @@ public class adduser extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Creating user failed, no rows affected.");
     }}catch(NoSuchAlgorithmException ex){
                     System.out.println(""+ex);} catch (SQLException ex) {
-                    Logger.getLogger(adduser.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(addemployee.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
 

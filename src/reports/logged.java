@@ -6,7 +6,7 @@
 package reports;
 
 import config.dbconnect;
-import static User.edituser.getHeightFromWidth;
+import static Employeeuser.editemployee.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -97,15 +97,14 @@ tablelogged.getTableHeader().setForeground(new java.awt.Color(0, 128, 128)); // 
         jLabel26 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablelogged = new javax.swing.JTable();
-        jPanel6 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel26.setBackground(new java.awt.Color(0, 204, 204));
-        jLabel26.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel26.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel26.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("  LOG IN/OUT");
         jLabel26.setOpaque(true);
@@ -122,21 +121,6 @@ tablelogged.getTableHeader().setForeground(new java.awt.Color(0, 128, 128)); // 
         jScrollPane1.setViewportView(tablelogged);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 780, 380));
-
-        jPanel6.setBackground(new java.awt.Color(0, 204, 204));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, -30, 110, 35));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -160,7 +144,6 @@ tablelogged.getTableHeader().setForeground(new java.awt.Color(0, 128, 128)); // 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablelogged;
     // End of variables declaration//GEN-END:variables
