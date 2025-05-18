@@ -109,6 +109,7 @@ public class registeracc extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -127,13 +128,13 @@ public class registeracc extends javax.swing.JFrame {
             }
         });
         mainlgf.add(password);
-        password.setBounds(620, 270, 310, 25);
+        password.setBounds(610, 320, 310, 25);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Password:");
         mainlgf.add(jLabel2);
-        jLabel2.setBounds(500, 270, 120, 25);
+        jLabel2.setBounds(490, 320, 120, 25);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -143,10 +144,10 @@ public class registeracc extends javax.swing.JFrame {
         jLabel3.setBounds(560, 40, 310, 30);
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
         jLabel6.setText("Username:");
         mainlgf.add(jLabel6);
-        jLabel6.setBounds(530, 150, 120, 25);
+        jLabel6.setBounds(520, 160, 120, 25);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -168,29 +169,29 @@ public class registeracc extends javax.swing.JFrame {
             }
         });
         mainlgf.add(confpass);
-        confpass.setBounds(620, 310, 310, 25);
+        confpass.setBounds(610, 360, 310, 25);
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel10.setForeground(new java.awt.Color(0, 153, 153));
         jLabel10.setText("Firstname:");
         mainlgf.add(jLabel10);
-        jLabel10.setBounds(530, 90, 120, 25);
+        jLabel10.setBounds(520, 90, 120, 25);
         mainlgf.add(fname);
-        fname.setBounds(620, 90, 310, 25);
+        fname.setBounds(610, 90, 310, 25);
         mainlgf.add(lname);
-        lname.setBounds(620, 120, 310, 25);
+        lname.setBounds(610, 130, 310, 25);
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel11.setForeground(new java.awt.Color(0, 153, 153));
         jLabel11.setText("Lastname:");
         mainlgf.add(jLabel11);
-        jLabel11.setBounds(530, 120, 120, 25);
+        jLabel11.setBounds(520, 130, 120, 25);
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel12.setForeground(new java.awt.Color(0, 153, 153));
         jLabel12.setText("Sex:");
         mainlgf.add(jLabel12);
-        jLabel12.setBounds(540, 230, 80, 25);
+        jLabel12.setBounds(760, 240, 80, 25);
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -200,23 +201,23 @@ public class registeracc extends javax.swing.JFrame {
             }
         });
         mainlgf.add(type);
-        type.setBounds(620, 350, 100, 25);
+        type.setBounds(600, 430, 100, 25);
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
         jLabel13.setText("Birthdate:");
         mainlgf.add(jLabel13);
-        jLabel13.setBounds(730, 230, 80, 25);
+        jLabel13.setBounds(500, 290, 80, 25);
         mainlgf.add(uname);
-        uname.setBounds(620, 150, 310, 25);
+        uname.setBounds(610, 160, 310, 25);
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel15.setForeground(new java.awt.Color(0, 153, 153));
         jLabel15.setText("Email:");
         mainlgf.add(jLabel15);
-        jLabel15.setBounds(560, 190, 120, 25);
+        jLabel15.setBounds(550, 200, 120, 25);
         mainlgf.add(emaill);
-        emaill.setBounds(620, 190, 310, 25);
+        emaill.setBounds(610, 200, 310, 25);
 
         loginbttn.setBackground(new java.awt.Color(0, 153, 153));
         loginbttn.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,13 +237,13 @@ public class registeracc extends javax.swing.JFrame {
             }
         });
         mainlgf.add(loginbttn);
-        loginbttn.setBounds(780, 390, 140, 30);
+        loginbttn.setBounds(760, 480, 140, 30);
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel16.setForeground(new java.awt.Color(0, 153, 153));
         jLabel16.setText("User-type:");
         mainlgf.add(jLabel16);
-        jLabel16.setBounds(510, 350, 120, 25);
+        jLabel16.setBounds(490, 430, 120, 25);
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
         showpass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -254,20 +255,20 @@ public class registeracc extends javax.swing.JFrame {
             }
         });
         mainlgf.add(showpass);
-        showpass.setBounds(780, 350, 140, 25);
+        showpass.setBounds(770, 400, 140, 25);
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
         mainlgf.add(sex);
-        sex.setBounds(610, 230, 100, 25);
+        sex.setBounds(820, 240, 100, 25);
         mainlgf.add(birthdate);
-        birthdate.setBounds(800, 230, 120, 25);
+        birthdate.setBounds(610, 280, 310, 25);
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel17.setForeground(new java.awt.Color(0, 153, 153));
         jLabel17.setText("Confirm password:");
         mainlgf.add(jLabel17);
-        jLabel17.setBounds(460, 310, 150, 25);
+        jLabel17.setBounds(450, 360, 150, 25);
 
         goback.setBackground(new java.awt.Color(0, 153, 153));
         goback.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,7 +288,7 @@ public class registeracc extends javax.swing.JFrame {
             }
         });
         mainlgf.add(goback);
-        goback.setBounds(610, 390, 140, 30);
+        goback.setBounds(590, 480, 140, 30);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -335,18 +336,23 @@ public class registeracc extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ANdre logo.png"))); // NOI18N
         jLabel1.setText("PAYROLL");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 280, 110));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 420, 140));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("SYSTEM");
         jLabel7.setPreferredSize(new java.awt.Dimension(163, 17));
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, 70));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, 70));
 
         mainlgf.add(jPanel3);
         jPanel3.setBounds(-10, 0, 450, 590);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
+        mainlgf.add(jLabel4);
+        jLabel4.setBounds(440, 0, 530, 570);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -576,6 +582,7 @@ goback.setForeground(new java.awt.Color(0, 153, 153));
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

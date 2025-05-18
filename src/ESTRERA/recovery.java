@@ -72,8 +72,8 @@ public class recovery extends javax.swing.JFrame {
         a3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -81,6 +81,7 @@ public class recovery extends javax.swing.JFrame {
         user_id = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         caution = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -126,7 +127,7 @@ public class recovery extends javax.swing.JFrame {
             }
         });
         loginFrame.add(loginbttn);
-        loginbttn.setBounds(750, 370, 140, 30);
+        loginbttn.setBounds(760, 470, 140, 30);
 
         cancel.setBackground(new java.awt.Color(0, 204, 204));
         cancel.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,7 +147,7 @@ public class recovery extends javax.swing.JFrame {
             }
         });
         loginFrame.add(cancel);
-        cancel.setBounds(540, 370, 140, 30);
+        cancel.setBounds(550, 470, 140, 30);
 
         minimize.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -165,9 +166,9 @@ public class recovery extends javax.swing.JFrame {
         loginFrame.add(minimize);
         minimize.setBounds(890, 10, 30, 25);
         loginFrame.add(a1);
-        a1.setBounds(750, 170, 170, 40);
+        a1.setBounds(620, 200, 170, 40);
         loginFrame.add(a2);
-        a2.setBounds(750, 220, 170, 40);
+        a2.setBounds(620, 300, 170, 40);
 
         a3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +176,7 @@ public class recovery extends javax.swing.JFrame {
             }
         });
         loginFrame.add(a3);
-        a3.setBounds(750, 270, 170, 40);
+        a3.setBounds(620, 410, 170, 40);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -199,18 +200,19 @@ public class recovery extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PAYROLL");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 280, 110));
-
         jLabel7.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("SYSTEM");
         jLabel7.setPreferredSize(new java.awt.Dimension(163, 17));
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, 70));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, 70));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ANdre logo.png"))); // NOI18N
+        jLabel9.setText("PAYROLL");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 410, 160));
 
         loginFrame.add(jPanel3);
         jPanel3.setBounds(0, 0, 450, 590);
@@ -218,10 +220,10 @@ public class recovery extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText(" What's your favorite color?");
+        jLabel2.setText(" What's your favorite hobby?");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         loginFrame.add(jLabel2);
-        jLabel2.setBounds(520, 220, 210, 40);
+        jLabel2.setBounds(600, 150, 210, 40);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -229,15 +231,16 @@ public class recovery extends javax.swing.JFrame {
         jLabel3.setText(" What's your favorite food?");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         loginFrame.add(jLabel3);
-        jLabel3.setBounds(520, 270, 210, 40);
+        jLabel3.setBounds(600, 250, 210, 40);
 
+        jLabel4.setBackground(new java.awt.Color(0, 153, 153));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText(" What's your pets name?");
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         loginFrame.add(jLabel4);
-        jLabel4.setBounds(520, 170, 210, 40);
+        jLabel4.setBounds(600, 360, 210, 40);
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
@@ -250,6 +253,7 @@ public class recovery extends javax.swing.JFrame {
         loginFrame.add(user_id);
         user_id.setBounds(470, 120, 125, 20);
 
+        jLabel8.setBackground(new java.awt.Color(0, 204, 204));
         jLabel8.setForeground(new java.awt.Color(0, 153, 153));
         jLabel8.setText(" Enter id:");
         jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
@@ -259,6 +263,10 @@ public class recovery extends javax.swing.JFrame {
         caution.setForeground(new java.awt.Color(204, 0, 0));
         loginFrame.add(caution);
         caution.setBounds(500, 100, 260, 30);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
+        loginFrame.add(jLabel10);
+        jLabel10.setBounds(450, 0, 520, 570);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -399,7 +407,7 @@ cancel.setForeground(Color.WHITE);
     private javax.swing.JTextField a3;
     private javax.swing.JLabel cancel;
     private javax.swing.JLabel caution;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -407,6 +415,7 @@ cancel.setForeground(Color.WHITE);
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

@@ -153,7 +153,6 @@ public class adduser extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         fname = new javax.swing.JTextField();
@@ -185,27 +184,13 @@ public class adduser extends javax.swing.JInternalFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         setOpaque(true);
         setPreferredSize(new java.awt.Dimension(800, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -30, 110, 35));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -226,29 +211,35 @@ public class adduser extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jPanel3.setForeground(new java.awt.Color(102, 102, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 230, -1));
 
-        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        fname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fnameActionPerformed(evt);
+            }
+        });
+        jPanel3.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 230, 30));
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setText("Password:");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 120, -1));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 120, 30));
 
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
             }
         });
-        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 260, 20));
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 260, 30));
 
-        jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setText("Confirm password:");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 120, -1));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 140, 20));
 
         confpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confpassActionPerformed(evt);
             }
         });
-        jPanel3.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 260, 20));
+        jPanel3.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 260, 30));
 
         jPanel4.setLayout(null);
 
@@ -265,34 +256,33 @@ public class adduser extends javax.swing.JInternalFrame {
             }
         });
         jPanel4.add(image);
-        image.setBounds(0, 0, 140, 130);
+        image.setBounds(0, 0, 190, 160);
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 140, 130));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 190, 160));
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
-        showpass.setForeground(new java.awt.Color(0, 153, 153));
         showpass.setText("View password");
         showpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showpassActionPerformed(evt);
             }
         });
-        jPanel3.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 140, 20));
+        jPanel3.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 140, 20));
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("Firstname:");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 110, 20));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 110, 20));
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("Lastname:");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 110, 20));
-        jPanel3.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 230, -1));
-        jPanel3.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 230, -1));
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 110, 20));
+        jPanel3.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 230, 30));
+        jPanel3.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 230, 30));
 
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Username:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 100, 20));
-        jPanel3.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 230, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 100, 20));
+        jPanel3.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 230, 30));
 
         remove.setBackground(new java.awt.Color(0, 204, 204));
         remove.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -304,15 +294,15 @@ public class adduser extends javax.swing.JInternalFrame {
                 removeMouseClicked(evt);
             }
         });
-        jPanel3.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 20));
+        jPanel3.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 190, 30));
 
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setText("Birthdate(yyyy-MM-dd):");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 200, 20));
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 200, 20));
 
-        jLabel25.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel25.setText("User-type:");
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 70, 20));
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, 20));
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -321,11 +311,12 @@ public class adduser extends javax.swing.JInternalFrame {
                 typeActionPerformed(evt);
             }
         });
-        jPanel3.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 120, 20));
+        jPanel3.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 130, -1));
 
-        jLabel16.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Status:");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 50, 20));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 50, 30));
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         status.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -334,11 +325,11 @@ public class adduser extends javax.swing.JInternalFrame {
                 statusActionPerformed(evt);
             }
         });
-        jPanel3.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 130, 20));
+        jPanel3.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 130, 30));
 
-        jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("Email:");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 70, 20));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 70, 50));
 
         emaill.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         emaill.addActionListener(new java.awt.event.ActionListener() {
@@ -346,20 +337,20 @@ public class adduser extends javax.swing.JInternalFrame {
                 emaillActionPerformed(evt);
             }
         });
-        jPanel3.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 180, 20));
+        jPanel3.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 240, 30));
 
-        jLabel12.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("Sex:");
-        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 40, 20));
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 80, 30));
 
-        jLabel8.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel8.setBackground(new java.awt.Color(204, 204, 204));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Clear all");
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
         jLabel8.setOpaque(true);
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 90, 20));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 90, 20));
 
-        savebttn.setBackground(new java.awt.Color(0, 204, 204));
+        savebttn.setBackground(new java.awt.Color(204, 204, 204));
         savebttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         savebttn.setText("save");
         savebttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
@@ -375,28 +366,31 @@ public class adduser extends javax.swing.JInternalFrame {
                 savebttnMouseExited(evt);
             }
         });
-        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 90, 20));
+        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 90, 20));
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        jPanel3.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 90, 20));
+        jPanel3.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 130, 30));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(51, 51, 51));
         jLabel27.setText("ADD");
-        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, -10, -1, 70));
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, 70));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("Application");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 140, 50));
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 140, 50));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(51, 51, 51));
         jLabel28.setText("EMPLOYEE");
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -10, -1, 70));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 800, 530));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 540));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -586,6 +580,10 @@ public class adduser extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emaillActionPerformed
 
+    private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fnameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField birthdate;
@@ -593,6 +591,7 @@ public class adduser extends javax.swing.JInternalFrame {
     private javax.swing.JTextField emaill;
     private javax.swing.JTextField fname;
     private javax.swing.JLabel image;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -608,7 +607,6 @@ public class adduser extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField lname;

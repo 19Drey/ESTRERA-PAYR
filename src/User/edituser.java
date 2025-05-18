@@ -234,11 +234,13 @@ userstable.getTableHeader().setForeground(new java.awt.Color(0, 128, 0));
         remove = new javax.swing.JLabel();
         savebttn = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userstable = new javax.swing.JTable();
         editinfo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 255, 204));
         setBorder(null);
@@ -368,6 +370,9 @@ userstable.getTableHeader().setForeground(new java.awt.Color(0, 128, 0));
         jLabel8.setOpaque(true);
         editpanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 90, 20));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
+        editpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 430, 440));
+
         getContentPane().add(editpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 420));
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
@@ -424,6 +429,9 @@ userstable.getTableHeader().setForeground(new java.awt.Color(0, 128, 0));
             }
         });
         getContentPane().add(editinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 90, 20));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1574610758891-5b809b6e6e2e (1).jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 370, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -567,12 +575,14 @@ userstable.getTableHeader().setForeground(new java.awt.Color(0, 128, 0));
     private javax.swing.JTextField fname;
     private javax.swing.JTextField id;
     private javax.swing.JLabel image;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;

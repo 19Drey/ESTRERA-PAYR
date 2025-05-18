@@ -43,6 +43,7 @@ public class changepass extends javax.swing.JFrame {
         loginbttn = new javax.swing.JLabel();
         cancel = new javax.swing.JLabel();
         caution = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -81,7 +82,7 @@ public class changepass extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("New password:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 120, 25));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 120, 25));
 
         confpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +96,7 @@ public class changepass extends javax.swing.JFrame {
                 passwordActionPerformed(evt);
             }
         });
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 240, 25));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 240, 25));
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
         showpass.setForeground(new java.awt.Color(0, 153, 153));
@@ -105,7 +106,7 @@ public class changepass extends javax.swing.JFrame {
                 showpassActionPerformed(evt);
             }
         });
-        jPanel1.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+        jPanel1.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
 
         loginbttn.setBackground(new java.awt.Color(0, 153, 153));
         loginbttn.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,7 +125,7 @@ public class changepass extends javax.swing.JFrame {
                 loginbttnMouseExited(evt);
             }
         });
-        jPanel1.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 110, 25));
+        jPanel1.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 110, 25));
 
         cancel.setBackground(new java.awt.Color(0, 153, 153));
         cancel.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,10 +144,13 @@ public class changepass extends javax.swing.JFrame {
                 cancelMouseExited(evt);
             }
         });
-        jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 110, 25));
+        jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 110, 25));
 
         caution.setForeground(new java.awt.Color(204, 0, 0));
         jPanel1.add(caution, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 240, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 300));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 300));
 
@@ -278,6 +282,7 @@ loginbttn.setForeground(Color.WHITE);
     private javax.swing.JPasswordField confpass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel loginbttn;

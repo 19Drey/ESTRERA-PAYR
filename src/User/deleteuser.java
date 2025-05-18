@@ -197,7 +197,6 @@ public boolean idcheck() {
         date1 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         viewdetails = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         usertable = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -211,6 +210,8 @@ public boolean idcheck() {
         delete = new javax.swing.JLabel();
         lastname = new javax.swing.JTextField();
         image = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 255, 204));
         setBorder(null);
@@ -520,7 +521,7 @@ public boolean idcheck() {
         getContentPane().add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 212, 0, 0));
 
         viewdetails.setBackground(new java.awt.Color(0, 153, 153));
-        viewdetails.setForeground(new java.awt.Color(255, 255, 255));
+        viewdetails.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         viewdetails.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewdetails.setText("view details");
         viewdetails.setOpaque(true);
@@ -529,22 +530,7 @@ public boolean idcheck() {
                 viewdetailsMouseClicked(evt);
             }
         });
-        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 90, 20));
-
-        jPanel6.setBackground(new java.awt.Color(0, 153, 153));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, -30, 110, 35));
+        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 90, 20));
 
         usertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -557,7 +543,7 @@ public boolean idcheck() {
         usertable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(usertable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 780, 200));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 780, 200));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -574,20 +560,22 @@ public boolean idcheck() {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
 
-        jLabel31.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel31.setBackground(new java.awt.Color(0, 153, 153));
         jLabel31.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText(" DELETE USER");
         jLabel31.setOpaque(true);
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 170, 30));
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 480, 30));
 
-        jLabel5.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ID:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 80, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 80, 20));
 
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Status:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 80, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 80, 20));
 
         firstname.setEnabled(false);
         firstname.addActionListener(new java.awt.event.ActionListener() {
@@ -595,7 +583,7 @@ public boolean idcheck() {
                 firstnameActionPerformed(evt);
             }
         });
-        getContentPane().add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 220, -1));
+        getContentPane().add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 220, -1));
 
         idd.setEnabled(false);
         idd.addActionListener(new java.awt.event.ActionListener() {
@@ -603,17 +591,18 @@ public boolean idcheck() {
                 iddActionPerformed(evt);
             }
         });
-        getContentPane().add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 220, -1));
+        getContentPane().add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 220, -1));
 
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Username:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 80, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 80, 20));
 
         jPanel5.setLayout(null);
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 110, 100));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 110, 100));
 
         delete.setBackground(new java.awt.Color(0, 153, 153));
-        delete.setForeground(new java.awt.Color(255, 255, 255));
+        delete.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         delete.setText("Delete");
         delete.setOpaque(true);
@@ -622,7 +611,7 @@ public boolean idcheck() {
                 deleteMouseClicked(evt);
             }
         });
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 90, 20));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 90, 20));
 
         lastname.setEnabled(false);
         lastname.addActionListener(new java.awt.event.ActionListener() {
@@ -630,10 +619,17 @@ public boolean idcheck() {
                 lastnameActionPerformed(evt);
             }
         });
-        getContentPane().add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 220, -1));
+        getContentPane().add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 220, -1));
 
         image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         getContentPane().add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 110, 100));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1574610758891-5b809b6e6e2e (1).jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 510));
+
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -725,9 +721,11 @@ public boolean idcheck() {
     private javax.swing.JLabel image;
     private javax.swing.JPanel infopanel1;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -749,7 +747,6 @@ public boolean idcheck() {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;

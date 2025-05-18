@@ -101,7 +101,9 @@ public class loginform extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -120,14 +122,14 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(upass);
-        upass.setBounds(610, 250, 310, 30);
+        upass.setBounds(610, 260, 310, 30);
 
         warningpass.setBackground(new java.awt.Color(255, 255, 255));
         warningpass.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         warningpass.setForeground(new java.awt.Color(153, 0, 0));
         warningpass.setOpaque(true);
         loginFrame.add(warningpass);
-        warningpass.setBounds(600, 250, 310, 20);
+        warningpass.setBounds(600, 250, 330, 50);
 
         usern.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +143,7 @@ public class loginform extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Password:");
         loginFrame.add(jLabel2);
-        jLabel2.setBounds(510, 250, 100, 30);
+        jLabel2.setBounds(490, 270, 100, 30);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -182,7 +184,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(loginbttn);
-        loginbttn.setBounds(760, 330, 140, 30);
+        loginbttn.setBounds(760, 340, 140, 30);
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
         showpass.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -194,7 +196,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(showpass);
-        showpass.setBounds(800, 290, 150, 20);
+        showpass.setBounds(780, 310, 150, 20);
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 153, 153));
@@ -205,14 +207,14 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(jLabel10);
-        jLabel10.setBounds(640, 380, 160, 30);
+        jLabel10.setBounds(640, 390, 160, 30);
 
         warningusername.setBackground(new java.awt.Color(255, 255, 255));
         warningusername.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         warningusername.setForeground(new java.awt.Color(153, 0, 0));
         warningusername.setOpaque(true);
         loginFrame.add(warningusername);
-        warningusername.setBounds(600, 200, 310, 20);
+        warningusername.setBounds(600, 190, 330, 50);
 
         signup.setBackground(new java.awt.Color(0, 153, 153));
         signup.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,7 +234,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(signup);
-        signup.setBounds(610, 330, 140, 30);
+        signup.setBounds(610, 340, 140, 30);
 
         minimize.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -276,15 +278,17 @@ public class loginform extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ANdre logo.png"))); // NOI18N
         jLabel1.setText("PAYROLL");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 360, 160));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 410, 160));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("SYSTEM");
         jLabel7.setPreferredSize(new java.awt.Dimension(163, 17));
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, 150));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, 150));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 350, 280));
 
         loginFrame.add(jPanel3);
         jPanel3.setBounds(0, 0, 460, 590);
@@ -293,7 +297,11 @@ public class loginform extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 153, 153));
         jLabel11.setText("Username:");
         loginFrame.add(jLabel11);
-        jLabel11.setBounds(510, 200, 100, 30);
+        jLabel11.setBounds(490, 200, 100, 30);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
+        loginFrame.add(jLabel6);
+        jLabel6.setBounds(460, 0, 510, 570);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -467,7 +475,9 @@ signup.setForeground(Color.WHITE);
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
