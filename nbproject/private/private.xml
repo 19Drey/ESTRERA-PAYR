@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/IT2C-TEVES-CFA/src/admindashboard/editoption.java</file>
-            <file>file:/C:/xampp/htdocs/IT2C-TEVES-CFA/src/ESTRERA/loginform.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/ADMINDASH/maindash.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/applications/addapplication.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/partylist/addpartylist.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/applications/editapplication.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/candidates/addcandidate.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/candidates/viewcandidates.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/applications/manageapplications.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/applications/viewapplication.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/partylist/deletepartylist.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/applications/deleteapplication.java</file>
+            <file>file:/C:/xampp/htdocs/ESTRERA-PAYR/src/candidates/deletecandidate.java</file>
         </group>
     </open-files>
 </project-private>

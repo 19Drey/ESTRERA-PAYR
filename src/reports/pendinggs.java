@@ -38,7 +38,7 @@ public class pendinggs extends javax.swing.JInternalFrame {
        bi.setNorthPane (null);
        
        pendingstable.getTableHeader().setOpaque(false);
-       pendingstable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
+       pendingstable.getTableHeader().setBackground(new java.awt.Color(0,153,153));
        pendingstable.getTableHeader().setForeground(Color.white);
     }
         
@@ -195,13 +195,13 @@ public class pendinggs extends javax.swing.JInternalFrame {
         });
         getContentPane().add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 110, 20));
 
-        jLabel26.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel26.setBackground(new java.awt.Color(0, 204, 204));
         jLabel26.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText(" PENDING USERS");
         jLabel26.setOpaque(true);
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 780, 40));
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 770, 40));
 
         pendingstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -213,7 +213,7 @@ public class pendinggs extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(pendingstable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 780, 280));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 280));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 30));
 

@@ -178,13 +178,13 @@ public class addemployee extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         emaill = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         savebttn = new javax.swing.JLabel();
         sex = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lname1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -343,14 +343,7 @@ public class addemployee extends javax.swing.JInternalFrame {
         jLabel12.setText("Sex:");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 80, 30));
 
-        jLabel8.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Clear all");
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
-        jLabel8.setOpaque(true);
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 90, -1));
-
-        savebttn.setBackground(new java.awt.Color(204, 204, 204));
+        savebttn.setBackground(new java.awt.Color(0, 153, 153));
         savebttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         savebttn.setText("save");
         savebttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
@@ -366,7 +359,7 @@ public class addemployee extends javax.swing.JInternalFrame {
                 savebttnMouseExited(evt);
             }
         });
-        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 90, -1));
+        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 90, -1));
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -389,6 +382,7 @@ public class addemployee extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 810, 540));
+        jPanel3.add(lname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 230, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 530));
 
@@ -528,14 +522,14 @@ public class addemployee extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_savebttnMouseClicked
 
     private void savebttnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseEntered
-        savebttn.setBackground(Color.white);
-        savebttn.setForeground(new java.awt.Color(204,0,0));
+        savebttn.setBackground(Color.WHITE);
+savebttn.setForeground(Color.BLACK);;
     }//GEN-LAST:event_savebttnMouseEntered
 
     private void savebttnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseExited
 
-        savebttn.setBackground(new java.awt.Color(204,0,0));
-        savebttn.setForeground(Color.white);
+         savebttn.setBackground(new java.awt.Color(0, 153, 153));
+savebttn.setForeground(Color.WHITE);
     }//GEN-LAST:event_savebttnMouseExited
 
     private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
@@ -604,12 +598,12 @@ public class addemployee extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField lname;
+    private javax.swing.JTextField lname1;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel remove;
     private javax.swing.JLabel savebttn;

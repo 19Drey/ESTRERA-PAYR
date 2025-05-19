@@ -153,10 +153,10 @@ public class manageuser extends javax.swing.JInternalFrame {
         );
         userssLayout.setVerticalGroup(
             userssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jPanel1.add(userss, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 380));
+        jPanel1.add(userss, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 500));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 480));
 

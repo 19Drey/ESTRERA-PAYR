@@ -114,7 +114,7 @@ public class usermaindash extends javax.swing.JFrame {
         jLabel1.setText("     REGISTERS DASHBOARD");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel1.setOpaque(true);
-        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 800, 40));
+        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 800, 50));
 
         sidebar.setBackground(new java.awt.Color(255, 255, 255));
         sidebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
@@ -136,7 +136,7 @@ public class usermaindash extends javax.swing.JFrame {
                 myaccountMouseExited(evt);
             }
         });
-        sidebar.add(myaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 170, 40));
+        sidebar.add(myaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 170, 40));
 
         reports.setBackground(new java.awt.Color(204, 0, 0));
         reports.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -153,7 +153,7 @@ public class usermaindash extends javax.swing.JFrame {
                 reportsMouseExited(evt);
             }
         });
-        sidebar.add(reports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, 40));
+        sidebar.add(reports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, 40));
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -170,10 +170,11 @@ public class usermaindash extends javax.swing.JFrame {
                 logoutMouseExited(evt);
             }
         });
-        sidebar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 130, 40));
+        sidebar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 130, 40));
 
-        accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/account-circle-icon (1).png"))); // NOI18N
-        sidebar.add(accname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
+        accname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconnn.jpg"))); // NOI18N
+        sidebar.add(accname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, -1));
 
         application.setBackground(new java.awt.Color(204, 0, 0));
         application.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -190,7 +191,7 @@ public class usermaindash extends javax.swing.JFrame {
                 applicationMouseExited(evt);
             }
         });
-        sidebar.add(application, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 160, 40));
+        sidebar.add(application, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, 40));
 
         editaccc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         editaccc.setForeground(new java.awt.Color(0, 204, 204));
@@ -206,7 +207,7 @@ public class usermaindash extends javax.swing.JFrame {
                 editacccMouseExited(evt);
             }
         });
-        sidebar.add(editaccc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 110, 40));
+        sidebar.add(editaccc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 110, 40));
 
         reports1.setBackground(new java.awt.Color(204, 0, 0));
         reports1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -223,7 +224,7 @@ public class usermaindash extends javax.swing.JFrame {
                 reports1MouseExited(evt);
             }
         });
-        sidebar.add(reports1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
+        sidebar.add(reports1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 40));
 
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 580));
 

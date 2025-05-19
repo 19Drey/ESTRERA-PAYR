@@ -164,7 +164,7 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         infopanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 100, 20));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Account ID:");
         infopanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 20));
 

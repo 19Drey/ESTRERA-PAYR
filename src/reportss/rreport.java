@@ -106,17 +106,12 @@ public class rreport extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablesMouseClicked
 
     private void tablesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablesMouseEntered
-       tables.setOpaque(true);
-tables.setBackground(new java.awt.Color(0, 128, 0)); // Green background
-tables.setForeground(Color.white); // White text
+     
 
     }//GEN-LAST:event_tablesMouseEntered
 
     private void tablesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablesMouseExited
-        tables.setOpaque(true); // Set to true to ensure the background color is visible
-tables.setBackground(new java.awt.Color(0, 128, 0)); // Green background
-tables.setForeground(new java.awt.Color(204, 0, 0)); // Set the foreground color to a specific shade of red
-
+       
     }//GEN-LAST:event_tablesMouseExited
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened

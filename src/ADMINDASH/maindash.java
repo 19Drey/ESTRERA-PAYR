@@ -6,6 +6,8 @@
 package ADMINDASH;
 
 
+
+
 import config.Session;
 import account.accdetails;
 
@@ -25,6 +27,10 @@ import reports.report;
  * @author acer
  */
 public class maindash extends javax.swing.JFrame {
+   
+    // ... your class members and methods will go here ...
+
+    
 
     /**
      * Creates new form 
@@ -55,6 +61,7 @@ public class maindash extends javax.swing.JFrame {
         accname = new javax.swing.JLabel();
         editaccc = new javax.swing.JLabel();
         applcation = new javax.swing.JLabel();
+        Empreg = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,7 +145,7 @@ public class maindash extends javax.swing.JFrame {
                 usersMouseExited(evt);
             }
         });
-        sidebar.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 160, 40));
+        sidebar.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 160, 40));
 
         myaccount.setBackground(new java.awt.Color(255, 255, 255));
         myaccount.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -172,7 +179,7 @@ public class maindash extends javax.swing.JFrame {
                 reportssMouseExited(evt);
             }
         });
-        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 40));
+        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 160, 40));
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -191,7 +198,7 @@ public class maindash extends javax.swing.JFrame {
         });
         sidebar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 160, 40));
 
-        accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/account-circle-icon (1).png"))); // NOI18N
+        accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Staff.png"))); // NOI18N
         sidebar.add(accname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
 
         editaccc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -226,6 +233,23 @@ public class maindash extends javax.swing.JFrame {
             }
         });
         sidebar.add(applcation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 40));
+
+        Empreg.setBackground(new java.awt.Color(204, 0, 0));
+        Empreg.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Empreg.setForeground(new java.awt.Color(0, 153, 153));
+        Empreg.setText("Employee registration");
+        Empreg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EmpregMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                EmpregMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                EmpregMouseExited(evt);
+            }
+        });
+        sidebar.add(Empreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
 
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 610));
 
@@ -500,6 +524,19 @@ jDesktopPane1.add(ad).setVisible(true);
  
     }//GEN-LAST:event_myaccountMouseClicked
 
+    private void EmpregMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmpregMouseClicked
+            
+       
+    }//GEN-LAST:event_EmpregMouseClicked
+
+    private void EmpregMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmpregMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmpregMouseEntered
+
+    private void EmpregMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmpregMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmpregMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -536,6 +573,7 @@ jDesktopPane1.add(ad).setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Empreg;
     private javax.swing.JLabel accname;
     private javax.swing.JLabel applcation;
     private javax.swing.JLabel editaccc;
