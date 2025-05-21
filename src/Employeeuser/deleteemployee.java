@@ -101,14 +101,11 @@ public boolean idcheck() {
 
     try {
         // Check in candidates
-        ResultSet rs1 = dbc.getData("SELECT * FROM candidates WHERE user_id = '" + userId + "'");
+        ResultSet rs1 = dbc.getData("SELECT * FROM users WHERE user_id = '" + userId + "'");
         if (rs1.next()) found = true;
         rs1.close();
 
-        // Check in applications
-        ResultSet rs2 = dbc.getData("SELECT * FROM applications WHERE uid = '" + userId + "'");
-        if (rs2.next()) found = true;
-        rs2.close();
+       
 
         // Check in logs
         ResultSet rs4 = dbc.getData("SELECT * FROM logs WHERE user_id = '" + userId + "'");
@@ -120,11 +117,7 @@ public boolean idcheck() {
         if (rs5.next()) found = true;
         rs5.close();
 
-        // Check in partylist
-        ResultSet rs6 = dbc.getData("SELECT * FROM partylist WHERE uid = '" + userId + "'");
-        if (rs6.next()) found = true;
-        rs6.close();
-
+     
         // Check in recovery
         ResultSet rs7 = dbc.getData("SELECT * FROM recovery WHERE userid = '" + userId + "'");
         if (rs7.next()) found = true;

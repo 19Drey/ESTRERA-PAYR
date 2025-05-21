@@ -381,7 +381,7 @@ public class addemployee extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -10, -1, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/—Pngtree—ethereal watercolor background in shades_13379941.jpg"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 810, 540));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 810, 540));
         jPanel3.add(lname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 230, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 530));

@@ -62,6 +62,8 @@ public class maindash extends javax.swing.JFrame {
         editaccc = new javax.swing.JLabel();
         applcation = new javax.swing.JLabel();
         Empreg = new javax.swing.JLabel();
+        Empreg1 = new javax.swing.JLabel();
+        Empreg2 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -237,7 +239,7 @@ public class maindash extends javax.swing.JFrame {
         Empreg.setBackground(new java.awt.Color(204, 0, 0));
         Empreg.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Empreg.setForeground(new java.awt.Color(0, 153, 153));
-        Empreg.setText("Employee registration");
+        Empreg.setText("View payroll");
         Empreg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 EmpregMouseClicked(evt);
@@ -249,7 +251,41 @@ public class maindash extends javax.swing.JFrame {
                 EmpregMouseExited(evt);
             }
         });
-        sidebar.add(Empreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
+        sidebar.add(Empreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 160, 40));
+
+        Empreg1.setBackground(new java.awt.Color(204, 0, 0));
+        Empreg1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Empreg1.setForeground(new java.awt.Color(0, 153, 153));
+        Empreg1.setText("Employess");
+        Empreg1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Empreg1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Empreg1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Empreg1MouseExited(evt);
+            }
+        });
+        sidebar.add(Empreg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
+
+        Empreg2.setBackground(new java.awt.Color(204, 0, 0));
+        Empreg2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Empreg2.setForeground(new java.awt.Color(0, 153, 153));
+        Empreg2.setText("generate payroll");
+        Empreg2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Empreg2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Empreg2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Empreg2MouseExited(evt);
+            }
+        });
+        sidebar.add(Empreg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 160, 40));
 
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 610));
 
@@ -537,6 +573,30 @@ jDesktopPane1.add(ad).setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_EmpregMouseExited
 
+    private void Empreg1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Empreg1MouseClicked
+
+    private void Empreg1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Empreg1MouseEntered
+
+    private void Empreg1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Empreg1MouseExited
+
+    private void Empreg2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Empreg2MouseClicked
+
+    private void Empreg2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Empreg2MouseEntered
+
+    private void Empreg2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Empreg2MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -574,6 +634,8 @@ jDesktopPane1.add(ad).setVisible(true);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Empreg;
+    private javax.swing.JLabel Empreg1;
+    private javax.swing.JLabel Empreg2;
     private javax.swing.JLabel accname;
     private javax.swing.JLabel applcation;
     private javax.swing.JLabel editaccc;
