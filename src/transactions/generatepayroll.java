@@ -3,43 +3,59 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ADMINDASH;
+package transactions;
 
-
-
-
-import config.Session;
-import account.accdetails;
-
-import config.dbconnect;
-import Employeeuser.manageuser;
+import ADMINDASH.editoption;
+import ADMINDASH.maindash;
 import ESTRERA.loginform;
+import config.Session;
+import config.dbconnect;
 import employeeinfo.Employees;
-import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
-
-import reports.report;
-
 
 /**
  *
- * @author acer
+ * @author II
  */
-public class maindash extends javax.swing.JFrame {
-   
-    // ... your class members and methods will go here ...
-
-    
+public class generatepayroll extends javax.swing.JFrame {
 
     /**
-     * Creates new form 
+     * Creates new form generatepayroll
      */
-    public maindash() {
+    public generatepayroll() {
         setUndecorated(true);
         initComponents();
+        loadEmployeesIntoCombo();
     }
+public void loadEmployeesIntoCombo() {
+    comboEmployees.removeAllItems();
+    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/payroll_management", "root", "")) {
+        String sql = "SELECT e.id, u.fname, u.lname FROM employees e JOIN users u ON e.uid = u.uid ORDER BY u.fname, u.lname";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            int employeeId = rs.getInt("id");  // employees.id is the PK
+            String fname = rs.getString("fname");
+            String lname = rs.getString("lname");
+            String display = employeeId + " - " + fname + " " + lname;
+            comboEmployees.addItem(display);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error loading employees: " + e.getMessage());
+    }
+}
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,18 +82,29 @@ public class maindash extends javax.swing.JFrame {
         Empreg = new javax.swing.JLabel();
         Empreg1 = new javax.swing.JLabel();
         Empreg2 = new javax.swing.JLabel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txtPhilhealthDeduction = new javax.swing.JTextField();
+        txtPayPeriod = new javax.swing.JTextField();
+        txtGrossSalary = new javax.swing.JTextField();
+        txtSSSDeduction = new javax.swing.JTextField();
+        btnAddPayroll = new javax.swing.JButton();
+        txtPagibigDeduction = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtPaymentDate = new javax.swing.JTextField();
+        txtNetSalary = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        comboEmployees = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
+        setResizable(false);
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -255,9 +282,8 @@ public class maindash extends javax.swing.JFrame {
         });
         sidebar.add(Empreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 160, 40));
 
-        Empreg1.setBackground(new java.awt.Color(204, 0, 0));
+        Empreg1.setBackground(new java.awt.Color(255, 255, 255));
         Empreg1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Empreg1.setForeground(new java.awt.Color(0, 153, 153));
         Empreg1.setText("Employess");
         Empreg1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -274,7 +300,6 @@ public class maindash extends javax.swing.JFrame {
 
         Empreg2.setBackground(new java.awt.Color(204, 0, 0));
         Empreg2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Empreg2.setForeground(new java.awt.Color(0, 153, 153));
         Empreg2.setText("generate payroll");
         Empreg2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -289,165 +314,132 @@ public class maindash extends javax.swing.JFrame {
         });
         sidebar.add(Empreg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 160, 40));
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        sidebar.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 170, 40));
+
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        sidebar.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 170, 40));
+
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 610));
 
-        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(800, 450));
+        jPanel3.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
-        );
+        txtPhilhealthDeduction.setEditable(false);
+        jPanel3.add(txtPhilhealthDeduction, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 290, 40));
+        jPanel3.add(txtPayPeriod, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 290, 40));
+        jPanel3.add(txtGrossSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 290, 40));
 
-        main.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, 510));
+        txtSSSDeduction.setEditable(false);
+        jPanel3.add(txtSSSDeduction, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 290, 40));
+
+        btnAddPayroll.setText("Generate Payroll");
+        btnAddPayroll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPayrollActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnAddPayroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 200, 60));
+
+        txtPagibigDeduction.setEditable(false);
+        jPanel3.add(txtPagibigDeduction, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 290, 40));
+
+        jLabel2.setText("Payment Date:");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
+
+        jLabel4.setText("Employee ID:");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+
+        jLabel6.setText("Pay Period:");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+
+        jLabel7.setText("Gross Salary:");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+
+        jLabel8.setText("SSS deduction:");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+
+        jLabel9.setText("PagIbig Deduction:");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        jPanel3.add(txtPaymentDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 300, 40));
+
+        txtNetSalary.setEditable(false);
+        jPanel3.add(txtNetSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 300, 40));
+
+        jLabel10.setText("PhilHealth deduction:");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
+
+        jLabel11.setText("Net Salary:");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+
+        jPanel3.add(comboEmployees, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 200, 40));
+
+        main.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 780, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 980, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-       
-    }//GEN-LAST:event_logoutMouseExited
-
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        
-    }//GEN-LAST:event_logoutMouseEntered
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-         dbconnect dbc = new dbconnect();
-         Session sess= Session.getInstance();
-         
-          String action = "User with ID "+sess.getId()+" logged out";
-        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
-        
-        loginform lfm = new loginform();
-        lfm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_logoutMouseClicked
-
-    private void reportssMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseExited
-        
-    }//GEN-LAST:event_reportssMouseExited
-
-    private void reportssMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseEntered
-        
-    }//GEN-LAST:event_reportssMouseEntered
-
-    private void reportssMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseClicked
-      // current button
-reportss.setOpaque(true);
-reportss.setBackground(new java.awt.Color(0, 153, 153));
-reportss.setForeground(Color.WHITE);
-
-// other buttons
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-users.setBackground(Color.WHITE);
-users.setForeground(new java.awt.Color(0, 153, 153));
-users.setOpaque(false);
-
-applcation.setBackground(Color.WHITE);
-applcation.setForeground(new java.awt.Color(0, 153, 153));
-applcation.setOpaque(false);
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-
-// load report panel
-report rp = new report();
-jDesktopPane1.removeAll();
-jDesktopPane1.add(rp).setVisible(true);
-
-    }//GEN-LAST:event_reportssMouseClicked
-
-    private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
-       
-    }//GEN-LAST:event_usersMouseExited
-
-    private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
-        
-    }//GEN-LAST:event_usersMouseEntered
-
-    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-    // current button
-users.setOpaque(true);
-users.setBackground(new java.awt.Color(0, 153, 153));
-users.setForeground(Color.WHITE);
-
-// other buttons
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-applcation.setBackground(Color.WHITE);
-applcation.setForeground(new java.awt.Color(0, 153, 153));
-applcation.setOpaque(false);
-
-reportss.setBackground(Color.WHITE);
-reportss.setForeground(new java.awt.Color(0, 153, 153));
-reportss.setOpaque(false);
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-  
-        
-        
-        jDesktopPane1.removeAll();
-     manageuser mu = new manageuser();
-       jDesktopPane1.add(mu).setVisible(true);
-    }//GEN-LAST:event_usersMouseClicked
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        Session sess = Session.getInstance();
-        if(sess.getId() == 0){
-        JOptionPane.showMessageDialog(null,"No account found, login first!");
-        loginform lfm = new loginform();
-        lfm.setVisible(true);
-        this.dispose();
-        }else{
-        accname.setText(""+sess.getUsername());}
-        
-      
-    }//GEN-LAST:event_formWindowActivated
-
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         Session sess = Session.getInstance();
         dbconnect dbc = new dbconnect();
         String action = "User with ID "+sess.getId()+" logged out";
-         dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
-        
+        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+
         System.exit(0);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        
+
     }//GEN-LAST:event_jLabel5MouseEntered
 
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        
+
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
@@ -455,12 +447,71 @@ editaccc.setOpaque(false);
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
-        
+
     }//GEN-LAST:event_minimizeMouseEntered
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        
+
     }//GEN-LAST:event_minimizeMouseExited
+
+    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
+        maindash mm = new maindash();
+        mm.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_usersMouseClicked
+
+    private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
+
+    }//GEN-LAST:event_usersMouseEntered
+
+    private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
+
+    }//GEN-LAST:event_usersMouseExited
+
+    private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
+
+    }//GEN-LAST:event_myaccountMouseClicked
+
+    private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
+
+    }//GEN-LAST:event_myaccountMouseEntered
+
+    private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
+
+    }//GEN-LAST:event_myaccountMouseExited
+
+    private void reportssMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseClicked
+
+    }//GEN-LAST:event_reportssMouseClicked
+
+    private void reportssMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseEntered
+
+    }//GEN-LAST:event_reportssMouseEntered
+
+    private void reportssMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseExited
+
+    }//GEN-LAST:event_reportssMouseExited
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        dbconnect dbc = new dbconnect();
+        Session sess= Session.getInstance();
+
+        String action = "User with ID "+sess.getId()+" logged out";
+        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+
+        loginform lfm = new loginform();
+        lfm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+
+    }//GEN-LAST:event_logoutMouseExited
 
     private void editacccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseClicked
         editoption eo = new editoption();
@@ -469,51 +520,15 @@ editaccc.setOpaque(false);
     }//GEN-LAST:event_editacccMouseClicked
 
     private void editacccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseEntered
-       
+
     }//GEN-LAST:event_editacccMouseEntered
 
     private void editacccMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseExited
-        
+
     }//GEN-LAST:event_editacccMouseExited
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
- myaccount.setOpaque(true);
-myaccount.setBackground(new java.awt.Color(0, 153, 153));
-myaccount.setForeground(Color.WHITE);
-
-jDesktopPane1.removeAll();
-accdetails ad = new accdetails();
-jDesktopPane1.add(ad).setVisible(true);
-
-    }//GEN-LAST:event_formWindowOpened
-
     private void applcationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseClicked
-   // current button
-applcation.setOpaque(true);
-applcation.setBackground(new java.awt.Color(0, 153, 153));
-applcation.setForeground(Color.WHITE);
 
-// other buttons
-users.setBackground(Color.WHITE);
-users.setForeground(new java.awt.Color(0, 153, 153));
-users.setOpaque(false);
-
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-reportss.setBackground(Color.WHITE);
-reportss.setForeground(new java.awt.Color(0, 153, 153));
-reportss.setOpaque(false);
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-
-jDesktopPane1.removeAll();
-
-   
-    
     }//GEN-LAST:event_applcationMouseClicked
 
     private void applcationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseEntered
@@ -524,47 +539,10 @@ jDesktopPane1.removeAll();
         // TODO add your handling code here:
     }//GEN-LAST:event_applcationMouseExited
 
-    private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
-
-    }//GEN-LAST:event_myaccountMouseExited
-
-    private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
-
-    }//GEN-LAST:event_myaccountMouseEntered
-
-    private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
-      // current button
-applcation.setOpaque(true);
-applcation.setBackground(new java.awt.Color(0, 153, 153));
-applcation.setForeground(Color.WHITE);
-
-// other buttons
-users.setBackground(Color.WHITE);
-users.setForeground(new java.awt.Color(0, 153, 153));
-users.setOpaque(false);
-
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-reportss.setBackground(Color.WHITE);
-reportss.setForeground(new java.awt.Color(0, 153, 153));
-reportss.setOpaque(false);
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-
-jDesktopPane1.removeAll();
-
-accdetails ad = new accdetails();
-jDesktopPane1.add(ad).setVisible(true);
- 
-    }//GEN-LAST:event_myaccountMouseClicked
-
     private void EmpregMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmpregMouseClicked
-            
-       
+        ViewPayroll vv = new ViewPayroll();
+        vv.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_EmpregMouseClicked
 
     private void EmpregMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmpregMouseEntered
@@ -601,6 +579,90 @@ jDesktopPane1.add(ad).setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_Empreg2MouseExited
 
+    private void btnAddPayrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPayrollActionPerformed
+      try {
+        // Get selected employee from comboEmployee
+        String selected = (String) comboEmployees.getSelectedItem();
+        if (selected == null) {
+            JOptionPane.showMessageDialog(this, "Please select an employee.");
+            return;
+        }
+        int employeeId = Integer.parseInt(selected.split(" - ")[0]); // extract employee.id
+
+        // Get other inputs
+        String payPeriod = txtPayPeriod.getText().trim();
+        String grossSalaryStr = txtGrossSalary.getText().trim();
+        String paymentDateStr = txtPaymentDate.getText().trim();
+
+        if (payPeriod.isEmpty() || grossSalaryStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter all required fields.");
+            return;
+        }
+
+        double grossSalary = Double.parseDouble(grossSalaryStr);
+
+        // Calculate deductions
+        double sssDeduction = grossSalary * 0.045; // 4.5%
+        double pagibigDeduction = Math.min(grossSalary * 0.01, 1500); // 1% or 1500 whichever is smaller
+        double philhealthDeduction = 1500; // fixed amount example (adjust as needed)
+
+        double totalDeductions = sssDeduction + pagibigDeduction + philhealthDeduction;
+        double netSalary = grossSalary - totalDeductions;
+
+        if (netSalary < 0) {
+            JOptionPane.showMessageDialog(this, "Net Salary cannot be negative. Please check the gross salary.");
+            return;
+        }
+
+        // Show calculated deductions and net salary in text fields
+        txtSSSDeduction.setText(String.format("%.2f", sssDeduction));
+        txtPagibigDeduction.setText(String.format("%.2f", pagibigDeduction));
+        txtPhilhealthDeduction.setText(String.format("%.2f", philhealthDeduction));
+        txtNetSalary.setText(String.format("%.2f", netSalary));
+
+        // Parse or default payment date
+        java.sql.Date paymentDate;
+        if (paymentDateStr.isEmpty()) {
+            paymentDate = new java.sql.Date(System.currentTimeMillis());
+            txtPaymentDate.setText(paymentDate.toString());
+        } else {
+            paymentDate = java.sql.Date.valueOf(paymentDateStr); // expects yyyy-MM-dd format
+        }
+
+        // Insert into DB
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/payroll_management", "root", "");
+             PreparedStatement stmt = conn.prepareStatement(
+                "INSERT INTO payroll (employee_id, pay_period, gross_salary, deductions, net_salary, payment_date) " +
+                "VALUES (?, ?, ?, ?, ?, ?)")) {
+
+            stmt.setInt(1, employeeId);
+            stmt.setString(2, payPeriod);
+            stmt.setDouble(3, grossSalary);
+            stmt.setDouble(4, totalDeductions);
+            stmt.setDouble(5, netSalary);
+            stmt.setDate(6, paymentDate);
+
+            int rowsInserted = stmt.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(this, "Payroll added successfully!");
+                generatepayroll gg = new generatepayroll();
+                gg.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to add payroll record.");
+            }
+        }
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Please enter valid numeric values.");
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
+    } catch (IllegalArgumentException e) {
+        JOptionPane.showMessageDialog(this, "Payment Date must be in yyyy-MM-dd format.");
+    }
+    }//GEN-LAST:event_btnAddPayrollActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -612,26 +674,26 @@ jDesktopPane1.add(ad).setVisible(true);
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(maindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(generatepayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(maindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(generatepayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(maindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(generatepayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(maindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(generatepayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new maindash().setVisible(true);
+                new generatepayroll().setVisible(true);
             }
         });
     }
@@ -642,17 +704,36 @@ jDesktopPane1.add(ad).setVisible(true);
     private javax.swing.JLabel Empreg2;
     private javax.swing.JLabel accname;
     private javax.swing.JLabel applcation;
+    private javax.swing.JButton btnAddPayroll;
+    private javax.swing.JComboBox<String> comboEmployees;
     private javax.swing.JLabel editaccc;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
     private javax.swing.JLabel minimize;
     private javax.swing.JLabel myaccount;
     private javax.swing.JLabel reportss;
     private javax.swing.JPanel sidebar;
+    private javax.swing.JTextField txtGrossSalary;
+    private javax.swing.JTextField txtNetSalary;
+    private javax.swing.JTextField txtPagibigDeduction;
+    private javax.swing.JTextField txtPayPeriod;
+    private javax.swing.JTextField txtPaymentDate;
+    private javax.swing.JTextField txtPhilhealthDeduction;
+    private javax.swing.JTextField txtSSSDeduction;
     private javax.swing.JLabel users;
     // End of variables declaration//GEN-END:variables
 }

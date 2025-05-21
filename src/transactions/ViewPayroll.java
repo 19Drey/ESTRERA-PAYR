@@ -1,45 +1,85 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ADMINDASH;
 
+package transactions;
 
-
-
-import config.Session;
-import account.accdetails;
-
-import config.dbconnect;
-import Employeeuser.manageuser;
+import ADMINDASH.editoption;
+import ADMINDASH.maindash;
+import Config.PDFExporter;
 import ESTRERA.loginform;
+import config.Session;
+import config.dbconnect;
 import employeeinfo.Employees;
-import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDateTime;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
-import reports.report;
+public class ViewPayroll extends javax.swing.JFrame {
 
 
-/**
- *
- * @author acer
- */
-public class maindash extends javax.swing.JFrame {
-   
-    // ... your class members and methods will go here ...
-
-    
-
-    /**
-     * Creates new form 
-     */
-    public maindash() {
+    public ViewPayroll() {
         setUndecorated(true);
         initComponents();
+        loadPayrollData();
     }
+   public void loadPayrollData() {
+    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/payroll_management", "root", "");
+         Statement stmt = conn.createStatement()) {
+
+        String sql = "SELECT p.payroll_id, p.employee_id, u.fname, u.lname, p.pay_period, p.gross_salary, p.deductions, p.net_salary, p.payment_date " +
+                     "FROM payroll p " +
+                     "INNER JOIN employees e ON p.employee_id = e.id " +
+                     "INNER JOIN users u ON e.uid = u.uid " +
+                     "ORDER BY p.payment_date DESC";
+
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnCount = rsmd.getColumnCount();
+
+        Vector<String> columns = new Vector<>();
+        for (int i = 1; i <= columnCount; i++) {
+            String colLabel = rsmd.getColumnLabel(i);
+            switch (colLabel) {
+                case "fname": colLabel = "First Name"; break;
+                case "lname": colLabel = "Last Name"; break;
+                case "payroll_id": colLabel = "Payroll ID"; break;
+                default: break;
+            }
+            columns.add(colLabel);
+        }
+
+        DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+        while (rs.next()) {
+            Vector<Object> row = new Vector<>();
+            for (int i = 1; i <= columnCount; i++) {
+                Object value = rs.getObject(i);
+                if (value instanceof java.sql.Date) {
+                    value = value.toString();
+                }
+                if (value instanceof Double) {
+                    value = String.format("%.2f", value);
+                }
+                row.add(value);
+            }
+            model.addRow(row);
+        }
+
+        jTable1.setModel(model);
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error loading payroll data: " + e.getMessage());
+    }
+}
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,18 +106,16 @@ public class maindash extends javax.swing.JFrame {
         Empreg = new javax.swing.JLabel();
         Empreg1 = new javax.swing.JLabel();
         Empreg2 = new javax.swing.JLabel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
+        setResizable(false);
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -238,9 +276,8 @@ public class maindash extends javax.swing.JFrame {
         });
         sidebar.add(applcation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 40));
 
-        Empreg.setBackground(new java.awt.Color(204, 0, 0));
+        Empreg.setBackground(new java.awt.Color(0, 0, 0));
         Empreg.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Empreg.setForeground(new java.awt.Color(0, 153, 153));
         Empreg.setText("View payroll");
         Empreg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -253,11 +290,10 @@ public class maindash extends javax.swing.JFrame {
                 EmpregMouseExited(evt);
             }
         });
-        sidebar.add(Empreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 160, 40));
+        sidebar.add(Empreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 150, 40));
 
-        Empreg1.setBackground(new java.awt.Color(204, 0, 0));
+        Empreg1.setBackground(new java.awt.Color(255, 255, 255));
         Empreg1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Empreg1.setForeground(new java.awt.Color(0, 153, 153));
         Empreg1.setText("Employess");
         Empreg1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -274,7 +310,6 @@ public class maindash extends javax.swing.JFrame {
 
         Empreg2.setBackground(new java.awt.Color(204, 0, 0));
         Empreg2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Empreg2.setForeground(new java.awt.Color(0, 153, 153));
         Empreg2.setText("generate payroll");
         Empreg2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -287,167 +322,123 @@ public class maindash extends javax.swing.JFrame {
                 Empreg2MouseExited(evt);
             }
         });
-        sidebar.add(Empreg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 160, 40));
+        sidebar.add(Empreg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, 40));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 160, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        sidebar.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, 40));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 160, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        sidebar.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 160, 40));
+
+        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 160, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        sidebar.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 160, 40));
 
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 610));
 
-        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(800, 450));
+        jPanel3.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
-        );
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        main.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, 510));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 30, 730, 250));
+
+        jButton1.setText("Print");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 363, 140, 40));
+
+        main.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 780, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 980, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-       
-    }//GEN-LAST:event_logoutMouseExited
-
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        
-    }//GEN-LAST:event_logoutMouseEntered
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-         dbconnect dbc = new dbconnect();
-         Session sess= Session.getInstance();
-         
-          String action = "User with ID "+sess.getId()+" logged out";
-        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
-        
-        loginform lfm = new loginform();
-        lfm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_logoutMouseClicked
-
-    private void reportssMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseExited
-        
-    }//GEN-LAST:event_reportssMouseExited
-
-    private void reportssMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseEntered
-        
-    }//GEN-LAST:event_reportssMouseEntered
-
-    private void reportssMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseClicked
-      // current button
-reportss.setOpaque(true);
-reportss.setBackground(new java.awt.Color(0, 153, 153));
-reportss.setForeground(Color.WHITE);
-
-// other buttons
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-users.setBackground(Color.WHITE);
-users.setForeground(new java.awt.Color(0, 153, 153));
-users.setOpaque(false);
-
-applcation.setBackground(Color.WHITE);
-applcation.setForeground(new java.awt.Color(0, 153, 153));
-applcation.setOpaque(false);
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-
-// load report panel
-report rp = new report();
-jDesktopPane1.removeAll();
-jDesktopPane1.add(rp).setVisible(true);
-
-    }//GEN-LAST:event_reportssMouseClicked
-
-    private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
-       
-    }//GEN-LAST:event_usersMouseExited
-
-    private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
-        
-    }//GEN-LAST:event_usersMouseEntered
-
-    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-    // current button
-users.setOpaque(true);
-users.setBackground(new java.awt.Color(0, 153, 153));
-users.setForeground(Color.WHITE);
-
-// other buttons
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-applcation.setBackground(Color.WHITE);
-applcation.setForeground(new java.awt.Color(0, 153, 153));
-applcation.setOpaque(false);
-
-reportss.setBackground(Color.WHITE);
-reportss.setForeground(new java.awt.Color(0, 153, 153));
-reportss.setOpaque(false);
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-  
-        
-        
-        jDesktopPane1.removeAll();
-     manageuser mu = new manageuser();
-       jDesktopPane1.add(mu).setVisible(true);
-    }//GEN-LAST:event_usersMouseClicked
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        Session sess = Session.getInstance();
-        if(sess.getId() == 0){
-        JOptionPane.showMessageDialog(null,"No account found, login first!");
-        loginform lfm = new loginform();
-        lfm.setVisible(true);
-        this.dispose();
-        }else{
-        accname.setText(""+sess.getUsername());}
-        
-      
-    }//GEN-LAST:event_formWindowActivated
-
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         Session sess = Session.getInstance();
         dbconnect dbc = new dbconnect();
         String action = "User with ID "+sess.getId()+" logged out";
-         dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
-        
+        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+
         System.exit(0);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        
+
     }//GEN-LAST:event_jLabel5MouseEntered
 
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        
+
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
@@ -455,12 +446,72 @@ editaccc.setOpaque(false);
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
-        
+
     }//GEN-LAST:event_minimizeMouseEntered
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        
+
     }//GEN-LAST:event_minimizeMouseExited
+
+    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
+        maindash mm = new maindash();
+        mm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_usersMouseClicked
+
+    private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
+
+    }//GEN-LAST:event_usersMouseEntered
+
+    private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
+
+    }//GEN-LAST:event_usersMouseExited
+
+    private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
+
+    }//GEN-LAST:event_myaccountMouseClicked
+
+    private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
+
+    }//GEN-LAST:event_myaccountMouseEntered
+
+    private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
+
+    }//GEN-LAST:event_myaccountMouseExited
+
+    private void reportssMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseClicked
+ maindash mm = new maindash();
+        mm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_reportssMouseClicked
+
+    private void reportssMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseEntered
+
+    }//GEN-LAST:event_reportssMouseEntered
+
+    private void reportssMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseExited
+
+    }//GEN-LAST:event_reportssMouseExited
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        dbconnect dbc = new dbconnect();
+        Session sess= Session.getInstance();
+
+        String action = "User with ID "+sess.getId()+" logged out";
+        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+
+        loginform lfm = new loginform();
+        lfm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+
+    }//GEN-LAST:event_logoutMouseExited
 
     private void editacccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseClicked
         editoption eo = new editoption();
@@ -469,51 +520,15 @@ editaccc.setOpaque(false);
     }//GEN-LAST:event_editacccMouseClicked
 
     private void editacccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseEntered
-       
+
     }//GEN-LAST:event_editacccMouseEntered
 
     private void editacccMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseExited
-        
+
     }//GEN-LAST:event_editacccMouseExited
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
- myaccount.setOpaque(true);
-myaccount.setBackground(new java.awt.Color(0, 153, 153));
-myaccount.setForeground(Color.WHITE);
-
-jDesktopPane1.removeAll();
-accdetails ad = new accdetails();
-jDesktopPane1.add(ad).setVisible(true);
-
-    }//GEN-LAST:event_formWindowOpened
-
     private void applcationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseClicked
-   // current button
-applcation.setOpaque(true);
-applcation.setBackground(new java.awt.Color(0, 153, 153));
-applcation.setForeground(Color.WHITE);
 
-// other buttons
-users.setBackground(Color.WHITE);
-users.setForeground(new java.awt.Color(0, 153, 153));
-users.setOpaque(false);
-
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-reportss.setBackground(Color.WHITE);
-reportss.setForeground(new java.awt.Color(0, 153, 153));
-reportss.setOpaque(false);
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-
-jDesktopPane1.removeAll();
-
-   
-    
     }//GEN-LAST:event_applcationMouseClicked
 
     private void applcationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseEntered
@@ -524,47 +539,8 @@ jDesktopPane1.removeAll();
         // TODO add your handling code here:
     }//GEN-LAST:event_applcationMouseExited
 
-    private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
-
-    }//GEN-LAST:event_myaccountMouseExited
-
-    private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
-
-    }//GEN-LAST:event_myaccountMouseEntered
-
-    private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
-      // current button
-applcation.setOpaque(true);
-applcation.setBackground(new java.awt.Color(0, 153, 153));
-applcation.setForeground(Color.WHITE);
-
-// other buttons
-users.setBackground(Color.WHITE);
-users.setForeground(new java.awt.Color(0, 153, 153));
-users.setOpaque(false);
-
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-reportss.setBackground(Color.WHITE);
-reportss.setForeground(new java.awt.Color(0, 153, 153));
-reportss.setOpaque(false);
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-
-jDesktopPane1.removeAll();
-
-accdetails ad = new accdetails();
-jDesktopPane1.add(ad).setVisible(true);
- 
-    }//GEN-LAST:event_myaccountMouseClicked
-
     private void EmpregMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmpregMouseClicked
-            
-       
+
     }//GEN-LAST:event_EmpregMouseClicked
 
     private void EmpregMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmpregMouseEntered
@@ -576,9 +552,9 @@ jDesktopPane1.add(ad).setVisible(true);
     }//GEN-LAST:event_EmpregMouseExited
 
     private void Empreg1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg1MouseClicked
-       Employees e = new Employees();
-       e.setVisible(true);
-       this.dispose();
+        Employees e = new Employees();
+        e.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_Empreg1MouseClicked
 
     private void Empreg1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg1MouseEntered
@@ -590,7 +566,9 @@ jDesktopPane1.add(ad).setVisible(true);
     }//GEN-LAST:event_Empreg1MouseExited
 
     private void Empreg2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg2MouseClicked
-        // TODO add your handling code here:
+       generatepayroll gg = new generatepayroll();
+       gg.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_Empreg2MouseClicked
 
     private void Empreg2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg2MouseEntered
@@ -600,6 +578,18 @@ jDesktopPane1.add(ad).setVisible(true);
     private void Empreg2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Empreg2MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_Empreg2MouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      int[] selectedRows = jTable1.getSelectedRows();
+
+    if (selectedRows.length == 0) {
+        JOptionPane.showMessageDialog(this, "Please select one or more rows to export.", "No Selection", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // Call the PDF exporter
+    PDFExporter.exportSelectedRowsToPDF(jTable1, selectedRows);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -612,26 +602,26 @@ jDesktopPane1.add(ad).setVisible(true);
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(maindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(maindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(maindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(maindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new maindash().setVisible(true);
+                new ViewPayroll().setVisible(true);
             }
         });
     }
@@ -643,10 +633,16 @@ jDesktopPane1.add(ad).setVisible(true);
     private javax.swing.JLabel accname;
     private javax.swing.JLabel applcation;
     private javax.swing.JLabel editaccc;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
     private javax.swing.JLabel minimize;

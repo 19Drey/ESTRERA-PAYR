@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 19, 2025 at 12:49 PM
+-- Host: 127.0.0.1
+-- Generation Time: May 21, 2025 at 07:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `payroll_management`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `position` varchar(100) NOT NULL,
+  `department` varchar(100) DEFAULT NULL,
+  `hire_date` date DEFAULT NULL,
+  `salary` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`id`, `uid`, `position`, `department`, `hire_date`, `salary`) VALUES
+(2, 29, 'Engineer', 'Engineering', '2025-05-21', 5200.00),
+(3, 28, 'Foreman', 'Engineering', '2025-05-21', 4000.00),
+(4, 30, 'Mason', 'Engineering', '2025-05-21', 3200.00),
+(5, 31, 'Mason', 'Engineering', '2025-05-21', 3200.00),
+(6, 32, 'Mason', 'Engineering', '2025-05-21', 3200.00),
+(7, 33, 'Contractor', 'Engineering', '2025-05-21', 4800.00),
+(8, 36, 'Manager', 'Engineering', '2025-05-21', 9000.00);
 
 -- --------------------------------------------------------
 
@@ -244,7 +272,83 @@ INSERT INTO `logged` (`lid`, `action`, `date`, `userid`) VALUES
 (323, 'User with ID 29 logged in', '2025-05-19 18:45:27', 29),
 (324, 'User with ID 29 logged out', '2025-05-19 18:45:55', 29),
 (325, 'User with ID 34 logged in', '2025-05-19 18:45:59', 34),
-(326, 'User with ID 34 logged out', '2025-05-19 18:46:12', 34);
+(326, 'User with ID 34 logged out', '2025-05-19 18:46:12', 34),
+(327, 'User with ID 35 logged in', '2025-05-21 09:45:37', 35),
+(328, 'User with ID 35 logged in', '2025-05-21 09:46:59', 35),
+(329, 'User with ID 35 logged in', '2025-05-21 09:56:25', 35),
+(330, 'User with ID 35 logged in', '2025-05-21 09:57:58', 35),
+(331, 'User with ID 35 logged in', '2025-05-21 09:58:31', 35),
+(332, 'User with ID 35 logged out', '2025-05-21 09:58:46', 35),
+(333, 'User with ID 35 logged in', '2025-05-21 09:59:59', 35),
+(334, 'User with ID 35 logged out', '2025-05-21 10:01:05', 35),
+(335, 'User with ID 35 logged in', '2025-05-21 10:30:24', 35),
+(336, 'User with ID 35 logged out', '2025-05-21 10:30:29', 35),
+(337, 'User with ID 35 logged in', '2025-05-21 10:31:52', 35),
+(338, 'User with ID 35 logged out', '2025-05-21 10:31:59', 35),
+(339, 'User with ID 35 logged in', '2025-05-21 10:32:26', 35),
+(340, 'User with ID 35 logged out', '2025-05-21 10:32:30', 35),
+(341, 'User with ID 35 logged in', '2025-05-21 10:34:00', 35),
+(342, 'User with ID 35 logged out', '2025-05-21 10:34:12', 35),
+(343, 'User with ID 35 logged in', '2025-05-21 10:35:22', 35),
+(344, 'User with ID 35 logged out', '2025-05-21 10:36:53', 35),
+(345, 'User with ID 35 logged in', '2025-05-21 10:37:01', 35),
+(346, 'User with ID 35 logged out', '2025-05-21 10:37:50', 35),
+(347, 'User with ID 35 logged in', '2025-05-21 10:37:57', 35),
+(348, 'User with ID 35 logged out', '2025-05-21 10:42:25', 35),
+(349, 'User with ID 35 logged in', '2025-05-21 10:44:53', 35),
+(350, 'User with ID 35 logged out', '2025-05-21 10:45:02', 35),
+(351, 'User with ID 35 logged in', '2025-05-21 10:45:42', 35),
+(352, 'User with ID 35 logged in', '2025-05-21 10:46:50', 35),
+(353, 'User with ID 35 logged out', '2025-05-21 10:47:23', 35),
+(354, 'User with ID 35 logged in', '2025-05-21 11:18:32', 35),
+(355, 'User with ID 35 logged in', '2025-05-21 11:19:08', 35),
+(356, 'User with ID 35 logged out', '2025-05-21 11:22:21', 35),
+(357, 'User with ID 35 logged in', '2025-05-21 11:23:39', 35),
+(358, 'User with ID 35 logged out', '2025-05-21 11:26:01', 35),
+(359, 'User with ID 35 logged in', '2025-05-21 11:26:58', 35),
+(360, 'User with ID 35 logged out', '2025-05-21 11:27:26', 35),
+(361, 'User with ID 35 logged in', '2025-05-21 11:31:18', 35),
+(362, 'User with ID 35 logged out', '2025-05-21 11:31:22', 35),
+(363, 'User with ID 35 logged in', '2025-05-21 11:34:54', 35),
+(364, 'User with ID 35 logged in', '2025-05-21 11:36:20', 35),
+(365, 'User with ID 35 logged in', '2025-05-21 11:45:38', 35),
+(366, 'User with ID 35 logged in', '2025-05-21 11:48:38', 35),
+(367, 'User with ID 35 logged out', '2025-05-21 11:50:30', 35),
+(368, 'User with ID 35 logged in', '2025-05-21 12:01:54', 35),
+(369, 'User with ID 35 logged out', '2025-05-21 12:02:32', 35),
+(370, 'User with ID 35 logged in', '2025-05-21 12:04:17', 35),
+(371, 'User with ID 35 logged out', '2025-05-21 12:04:48', 35),
+(372, 'User with ID 35 logged in', '2025-05-21 12:05:04', 35),
+(373, 'User with ID 35 logged out', '2025-05-21 12:05:56', 35),
+(374, 'User with ID 35 logged in', '2025-05-21 12:06:31', 35),
+(375, 'User with ID 35 logged in', '2025-05-21 12:09:44', 35),
+(376, 'User with ID 35 logged out', '2025-05-21 12:09:55', 35),
+(377, 'User with ID 35 logged in', '2025-05-21 12:18:23', 35),
+(378, 'User with ID 35 logged out', '2025-05-21 12:18:36', 35),
+(379, 'User with ID 35 logged in', '2025-05-21 12:18:44', 35),
+(380, 'User with ID 35 logged in', '2025-05-21 12:22:07', 35),
+(381, 'User with ID 35 logged in', '2025-05-21 12:24:34', 35),
+(382, 'User with ID 35 logged in', '2025-05-21 12:26:04', 35),
+(383, 'User with ID 35 logged out', '2025-05-21 12:27:22', 35),
+(384, 'User with ID 36 logged in', '2025-05-21 12:30:13', 36),
+(385, 'User with ID 36 logged out', '2025-05-21 12:31:13', 36),
+(386, 'User with ID 36 logged in', '2025-05-21 12:45:38', 36),
+(387, 'User with ID 36 logged in', '2025-05-21 12:48:56', 36),
+(388, 'User with ID 36 logged out', '2025-05-21 12:49:05', 36),
+(389, 'User with ID 36 logged in', '2025-05-21 12:50:12', 36),
+(390, 'User with ID 36 logged out', '2025-05-21 12:50:15', 36),
+(391, 'User with ID 36 logged in', '2025-05-21 12:50:59', 36),
+(392, 'User with ID 35 logged in', '2025-05-21 12:51:38', 35),
+(393, 'User with ID 35 logged out', '2025-05-21 12:52:53', 35),
+(394, 'User with ID 36 logged in', '2025-05-21 12:52:57', 36),
+(395, 'User with ID 36 logged in', '2025-05-21 12:56:06', 36),
+(396, 'User with ID 36 logged out', '2025-05-21 12:56:16', 36),
+(397, 'User with ID 36 logged in', '2025-05-21 12:56:22', 36),
+(398, 'User with ID 36 logged out', '2025-05-21 12:57:05', 36),
+(399, 'User with ID 36 logged in', '2025-05-21 12:57:17', 36),
+(400, 'User with ID 36 logged out', '2025-05-21 12:57:27', 36),
+(401, 'User with ID 36 logged in', '2025-05-21 12:57:58', 36),
+(402, 'User with ID 36 logged out', '2025-05-21 12:59:12', 36);
 
 -- --------------------------------------------------------
 
@@ -293,6 +397,31 @@ INSERT INTO `logs` (`lid`, `action`, `date`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payroll`
+--
+
+CREATE TABLE `payroll` (
+  `payroll_id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `pay_period` varchar(255) NOT NULL,
+  `gross_salary` decimal(10,2) NOT NULL,
+  `deductions` decimal(10,2) DEFAULT 0.00,
+  `net_salary` decimal(10,2) NOT NULL,
+  `payment_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payroll`
+--
+
+INSERT INTO `payroll` (`payroll_id`, `employee_id`, `pay_period`, `gross_salary`, `deductions`, `net_salary`, `payment_date`) VALUES
+(4, 2, '2025-05-21 to 2025-05-25', 5200.00, 1786.00, 3414.00, '2025-05-21'),
+(5, 3, '2025-05-21 to 2025-05-25', 4000.00, 1720.00, 2280.00, '2025-05-21'),
+(6, 8, '2025-05-21 to 2025-05-25', 9000.00, 1995.00, 7005.00, '2025-05-21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `recovery`
 --
 
@@ -311,33 +440,6 @@ CREATE TABLE `recovery` (
 INSERT INTO `recovery` (`rid`, `userid`, `answer1`, `answer2`, `answer3`) VALUES
 (5, 29, 'matug', 'humba', 'blue'),
 (6, 32, 'matug', 'm', 'b');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `staff_information`
---
-
-CREATE TABLE `staff_information` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `surname` varchar(255) DEFAULT NULL,
-  `Dob` int(11) DEFAULT NULL,
-  `Email` varchar(255) DEFAULT NULL,
-  `Telephone` varchar(20) DEFAULT NULL,
-  `Address` varchar(255) DEFAULT NULL,
-  `Department` varchar(255) DEFAULT NULL,
-  `Image` blob DEFAULT NULL,
-  `Gender` char(1) DEFAULT NULL,
-  `Salary` varchar(20) DEFAULT NULL,
-  `Address2` varchar(255) DEFAULT NULL,
-  `Apartment` varchar(255) DEFAULT NULL,
-  `Post_code` varchar(20) DEFAULT NULL,
-  `Designation` varchar(255) DEFAULT NULL,
-  `Status` varchar(20) DEFAULT NULL,
-  `Date_hired` varchar(20) DEFAULT NULL,
-  `job_title` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -370,11 +472,20 @@ INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `
 (31, 'ka', 'kaka', 'ko', 'a@gmail.com', 'male', 'User', '2004-12-19', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Active', 'src/images/22f94677-5769-4c10-9cb2-dffeebc6c054.jpg'),
 (32, 'lola', 'lola', 'lola', 'lol@gmail.com', 'male', 'User', '1997-01-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', ' '),
 (33, 'tata', 'canoy', 'tata', 'tata@gmail.com', 'male', 'User', '2004-12-19', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Active', ''),
-(34, 'ming', 'ming', 'ming', 'mi@gmail.com', 'male', 'User', '2004-12-19', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Active', ' ');
+(34, 'ming', 'ming', 'ming', 'mi@gmail.com', 'male', 'User', '2004-12-19', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Active', ' '),
+(35, 'Admin', 'HR', 'administrator', 'admin@gmail.com', 'male', 'Admin', '2000-05-10', 'LINbqJZtkCEg+0UEA3+tNO/6S5Rh6YjkxNoHOtUNroI=', 'Active', ' '),
+(36, 'User', 'HR', 'user', 'user@gmail.com', 'male', 'User', '2004-01-16', 'LINbqJZtkCEg+0UEA3+tNO/6S5Rh6YjkxNoHOtUNroI=', 'Active', ' ');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uid` (`uid`);
 
 --
 -- Indexes for table `logged`
@@ -391,17 +502,18 @@ ALTER TABLE `logs`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `payroll`
+--
+ALTER TABLE `payroll`
+  ADD PRIMARY KEY (`payroll_id`),
+  ADD KEY `employee_id` (`employee_id`);
+
+--
 -- Indexes for table `recovery`
 --
 ALTER TABLE `recovery`
   ADD PRIMARY KEY (`rid`),
   ADD KEY `userid` (`userid`);
-
---
--- Indexes for table `staff_information`
---
-ALTER TABLE `staff_information`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -414,10 +526,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `logged`
 --
 ALTER TABLE `logged`
-  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=327;
+  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=403;
 
 --
 -- AUTO_INCREMENT for table `logs`
@@ -426,26 +544,32 @@ ALTER TABLE `logs`
   MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
+-- AUTO_INCREMENT for table `payroll`
+--
+ALTER TABLE `payroll`
+  MODIFY `payroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `recovery`
 --
 ALTER TABLE `recovery`
   MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `staff_information`
---
-ALTER TABLE `staff_information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `employees`
+--
+ALTER TABLE `employees`
+  ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `logged`
@@ -458,6 +582,12 @@ ALTER TABLE `logged`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`uid`);
+
+--
+-- Constraints for table `payroll`
+--
+ALTER TABLE `payroll`
+  ADD CONSTRAINT `payroll_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`);
 
 --
 -- Constraints for table `recovery`

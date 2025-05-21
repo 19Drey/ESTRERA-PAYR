@@ -1,34 +1,93 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package registrardashboard;
 
-import account.accdetails;
-
+import Config.PDFExporter;
+import ESTRERA.loginform;
 import config.Session;
 import config.dbconnect;
-import ESTRERA.loginform;
-import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Vector;
 import javax.swing.JOptionPane;
-
-import reports.report;
-import reportss.rreport;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author acer
+ * @author II
  */
-public class usermaindash extends javax.swing.JFrame {
+public class Payslip extends javax.swing.JFrame {
 
     /**
-     * Creates new form usermaindash
+     * Creates new form Payslip
      */
-    public usermaindash() {
+    public Payslip() {
+        setUndecorated(true);
         initComponents();
+        loadPayrollForCurrentUser();
     }
+public void loadPayrollForCurrentUser() {
+    int userId = Session.getInstance().getId(); // Make sure this returns the logged-in UID
+
+    String sql = "SELECT p.payroll_id, p.pay_period, p.gross_salary, p.deductions, p.net_salary, p.payment_date " +
+                 "FROM payroll p " +
+                 "JOIN employees e ON p.employee_id = e.id " +
+                 "WHERE e.uid = ? ORDER BY p.payment_date DESC";
+
+    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/payroll_management", "root", "");
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setInt(1, userId);
+        ResultSet rs = stmt.executeQuery();
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnCount = rsmd.getColumnCount();
+
+        // Column headers
+        Vector<String> columnNames = new Vector<>();
+        for (int i = 1; i <= columnCount; i++) {
+            String label = rsmd.getColumnLabel(i);
+            columnNames.add(label); // Use plain labels (can customize if needed)
+        }
+
+        // Data rows
+        Vector<Vector<Object>> data = new Vector<>();
+        while (rs.next()) {
+            Vector<Object> row = new Vector<>();
+            for (int i = 1; i <= columnCount; i++) {
+                Object val = rs.getObject(i);
+                if (val instanceof java.sql.Date) {
+                    val = val.toString();
+                } else if (val instanceof Double || val instanceof Float) {
+                    val = String.format("%.2f", val);
+                }
+                row.add(val);
+            }
+            data.add(row);
+        }
+
+        // Debug
+        System.out.println("Fetched " + data.size() + " rows for user ID " + userId);
+
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+        jTable1.setModel(model);
+
+        if (data.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No payroll records found.");
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "SQL Error: " + e.getMessage());
+    }
+}
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,20 +109,16 @@ public class usermaindash extends javax.swing.JFrame {
         logout = new javax.swing.JLabel();
         accname = new javax.swing.JLabel();
         editaccc = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
+        setResizable(false);
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -191,36 +246,63 @@ public class usermaindash extends javax.swing.JFrame {
         });
         sidebar.add(editaccc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 110, 40));
 
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Your Payslip");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-        sidebar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 110, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        sidebar.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, 50));
 
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 580));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(800, 450));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
-        );
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 750, 330));
 
-        jPanel2.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel4.setText("Your Payslips:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jButton1.setText("Print");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 140, 40));
 
         main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 800, 500));
 
@@ -245,7 +327,7 @@ public class usermaindash extends javax.swing.JFrame {
         Session sess = Session.getInstance();
         dbconnect dbc = new dbconnect();
         String action = "User with ID "+sess.getId()+" logged out";
-         dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
         System.exit(0);
         System.exit(0);
     }//GEN-LAST:event_jLabel5MouseClicked
@@ -270,53 +352,48 @@ public class usermaindash extends javax.swing.JFrame {
 
     }//GEN-LAST:event_minimizeMouseExited
 
+    private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
+ usermaindash us = new usermaindash();
+ us.setVisible(true);
+ this.dispose();
+    }//GEN-LAST:event_myaccountMouseClicked
+
+    private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
+
+    }//GEN-LAST:event_myaccountMouseEntered
+
+    private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
+
+    }//GEN-LAST:event_myaccountMouseExited
+
     private void reportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsMouseClicked
-      // current button
-reports.setOpaque(true);
-reports.setBackground(new java.awt.Color(0, 153, 153));
-reports.setForeground(Color.WHITE);
-
-// other buttons
-myaccount.setBackground(Color.WHITE);
-myaccount.setForeground(new java.awt.Color(0, 153, 153));
-myaccount.setOpaque(false);
-
-
-editaccc.setBackground(Color.WHITE);
-editaccc.setForeground(new java.awt.Color(0, 153, 153));
-editaccc.setOpaque(false);
-
-// load content
-jDesktopPane1.removeAll();
-rreport rp = new rreport();
-jDesktopPane1.add(rp).setVisible(true);
-
+       
     }//GEN-LAST:event_reportsMouseClicked
 
     private void reportsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsMouseEntered
-        
+
     }//GEN-LAST:event_reportsMouseEntered
 
     private void reportsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsMouseExited
-        
+
     }//GEN-LAST:event_reportsMouseExited
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         Session sess = Session.getInstance();
         dbconnect dbc = new dbconnect();
         String action = "User with ID "+sess.getId()+" logged out";
-         dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
         System.exit(0);
         loginform lfm = new loginform();
         lfm.setVisible(true);
     }//GEN-LAST:event_logoutMouseClicked
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        
+
     }//GEN-LAST:event_logoutMouseEntered
 
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        
+
     }//GEN-LAST:event_logoutMouseExited
 
     private void editacccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseClicked
@@ -326,74 +403,26 @@ jDesktopPane1.add(rp).setVisible(true);
     }//GEN-LAST:event_editacccMouseClicked
 
     private void editacccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseEntered
-        
+
     }//GEN-LAST:event_editacccMouseEntered
 
     private void editacccMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseExited
-        
+
     }//GEN-LAST:event_editacccMouseExited
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-myaccount.setOpaque(true);
-myaccount.setBackground(new java.awt.Color(0, 128, 128)); // Teal color
-myaccount.setForeground(Color.white);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int[] selectedRows = jTable1.getSelectedRows();
+
+        if (selectedRows.length == 0) {
+            JOptionPane.showMessageDialog(this, "Please select one or more rows to export.", "No Selection", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
         
-        jDesktopPane1.removeAll();
-     accdetails ad = new accdetails();
-     jDesktopPane1.add(ad).setVisible(true);
-    }//GEN-LAST:event_formWindowOpened
+        PDFExporter.exportSelectedRowsToPDF(jTable1, selectedRows);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        Session sess = Session.getInstance();
-        if(sess.getId() == 0){
-        JOptionPane.showMessageDialog(null,"No account found, login first!");
-        loginform lfm = new loginform();
-        lfm.setVisible(true);
-        this.dispose();
-        }else{
-        accname.setText(""+sess.getUsername());}
-    }//GEN-LAST:event_formWindowActivated
-
-    private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
-
-    }//GEN-LAST:event_myaccountMouseExited
-
-    private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
-
-    }//GEN-LAST:event_myaccountMouseEntered
-
-    private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
-  myaccount.setOpaque(true);
- myaccount.setBackground(new java.awt.Color(0, 153, 153));
- myaccount.setForeground(Color.white);
-
-
-
-
-reports.setBackground(Color.white);
-reports.setForeground(new java.awt.Color(0, 128, 128)); // Green color
-reports.setOpaque(true);
-
-editaccc.setBackground(Color.white);
-editaccc.setForeground(new java.awt.Color(0, 128, 128)); // Green color
-editaccc.setOpaque(true);
-
-jDesktopPane1.removeAll();
-accdetails ad = new accdetails();
-jDesktopPane1.add(ad).setVisible(true);
-
-    }//GEN-LAST:event_myaccountMouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-      Payslip oten = new Payslip();
-      oten.setVisible(true);
-      this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -408,20 +437,20 @@ jDesktopPane1.add(ad).setVisible(true);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(usermaindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Payslip.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(usermaindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Payslip.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(usermaindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Payslip.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(usermaindash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Payslip.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new usermaindash().setVisible(true);
+                new Payslip().setVisible(true);
             }
         });
     }
@@ -429,12 +458,16 @@ jDesktopPane1.add(ad).setVisible(true);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accname;
     private javax.swing.JLabel editaccc;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
     private javax.swing.JLabel minimize;
